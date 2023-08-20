@@ -98,9 +98,6 @@ tests/threads
 tests/timeout
 tests/title
 tests/triangle-vulkan
-<<<<<<< HEAD
-=======
 tests/window
->>>>>>> source/master
 tests/windows
 

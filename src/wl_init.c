@@ -25,19 +25,11 @@
 //========================================================================
 // It is fine to use C99 in this file because it will not be built with VS
 //========================================================================
-<<<<<<< HEAD
-
-#define _POSIX_C_SOURCE 200809L
-
-#include "internal.h"
-
-=======
 
 #include "internal.h"
 
 #if defined(_GLFW_WAYLAND)
 
->>>>>>> source/master
 #include <errno.h>
 #include <limits.h>
 #include <linux/input.h>
@@ -47,9 +39,6 @@
 #include <sys/mman.h>
 #include <sys/timerfd.h>
 #include <unistd.h>
-<<<<<<< HEAD
-#include <wayland-client.h>
-=======
 #include <time.h>
 
 #include "wayland-client-protocol.h"
@@ -92,7 +81,6 @@
 #define types _glfw_idle_inhibit_types
 #include "wayland-idle-inhibit-unstable-v1-client-protocol-code.h"
 #undef types
->>>>>>> source/master
 
 static void wmBaseHandlePing(void* userData,
                              struct xdg_wm_base* wmBase,
@@ -196,13 +184,7 @@ static void registryHandleGlobalRemove(void* userData,
                                        struct wl_registry* registry,
                                        uint32_t name)
 {
-<<<<<<< HEAD
-    int i;
-
-    for (i = 0; i < _glfw.monitorCount; ++i)
-=======
     for (int i = 0; i < _glfw.monitorCount; ++i)
->>>>>>> source/master
     {
         _GLFWmonitor* monitor = _glfw.monitors[i];
         if (monitor->wl.name == name)
@@ -406,13 +388,6 @@ static GLFWbool loadCursorTheme(void)
 
 GLFWbool _glfwConnectWayland(int platformID, _GLFWplatform* platform)
 {
-<<<<<<< HEAD
-    // These must be set before any failure checks
-    _glfw.wl.keyRepeatTimerfd = -1;
-    _glfw.wl.cursorTimerfd = -1;
-
-    _glfw.wl.tag = glfwGetVersionString();
-=======
     const _GLFWplatform wayland =
     {
         GLFW_PLATFORM_WAYLAND,
@@ -496,7 +471,6 @@ GLFWbool _glfwConnectWayland(int platformID, _GLFWplatform* platform)
         _glfwGetPhysicalDevicePresentationSupportWayland,
         _glfwCreateWindowSurfaceWayland,
     };
->>>>>>> source/master
 
     void* module = _glfwPlatformLoadModule("libwayland-client.so.0");
     if (!module)
@@ -662,15 +636,9 @@ int _glfwInitWayland(void)
     _glfw.wl.xkb.keymap_mod_get_index = (PFN_xkb_keymap_mod_get_index)
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_keymap_mod_get_index");
     _glfw.wl.xkb.keymap_key_repeats = (PFN_xkb_keymap_key_repeats)
-<<<<<<< HEAD
-        _glfw_dlsym(_glfw.wl.xkb.handle, "xkb_keymap_key_repeats");
-    _glfw.wl.xkb.keymap_key_get_syms_by_level = (PFN_xkb_keymap_key_get_syms_by_level)
-        _glfw_dlsym(_glfw.wl.xkb.handle, "xkb_keymap_key_get_syms_by_level");
-=======
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_keymap_key_repeats");
     _glfw.wl.xkb.keymap_key_get_syms_by_level = (PFN_xkb_keymap_key_get_syms_by_level)
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_keymap_key_get_syms_by_level");
->>>>>>> source/master
     _glfw.wl.xkb.state_new = (PFN_xkb_state_new)
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_state_new");
     _glfw.wl.xkb.state_unref = (PFN_xkb_state_unref)
@@ -678,20 +646,11 @@ int _glfwInitWayland(void)
     _glfw.wl.xkb.state_key_get_syms = (PFN_xkb_state_key_get_syms)
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_state_key_get_syms");
     _glfw.wl.xkb.state_update_mask = (PFN_xkb_state_update_mask)
-<<<<<<< HEAD
-        _glfw_dlsym(_glfw.wl.xkb.handle, "xkb_state_update_mask");
-    _glfw.wl.xkb.state_key_get_layout = (PFN_xkb_state_key_get_layout)
-        _glfw_dlsym(_glfw.wl.xkb.handle, "xkb_state_key_get_layout");
-    _glfw.wl.xkb.state_mod_index_is_active = (PFN_xkb_state_mod_index_is_active)
-        _glfw_dlsym(_glfw.wl.xkb.handle, "xkb_state_mod_index_is_active");
-
-=======
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_state_update_mask");
     _glfw.wl.xkb.state_key_get_layout = (PFN_xkb_state_key_get_layout)
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_state_key_get_layout");
     _glfw.wl.xkb.state_mod_index_is_active = (PFN_xkb_state_mod_index_is_active)
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_state_mod_index_is_active");
->>>>>>> source/master
     _glfw.wl.xkb.compose_table_new_from_locale = (PFN_xkb_compose_table_new_from_locale)
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_compose_table_new_from_locale");
     _glfw.wl.xkb.compose_table_unref = (PFN_xkb_compose_table_unref)
@@ -705,11 +664,7 @@ int _glfwInitWayland(void)
     _glfw.wl.xkb.compose_state_get_status = (PFN_xkb_compose_state_get_status)
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_compose_state_get_status");
     _glfw.wl.xkb.compose_state_get_one_sym = (PFN_xkb_compose_state_get_one_sym)
-<<<<<<< HEAD
-        _glfw_dlsym(_glfw.wl.xkb.handle, "xkb_compose_state_get_one_sym");
-=======
         _glfwPlatformGetModuleSymbol(_glfw.wl.xkb.handle, "xkb_compose_state_get_one_sym");
->>>>>>> source/master
 
     if (_glfw.hints.init.wl.libdecorMode == GLFW_WAYLAND_PREFER_LIBDECOR)
         _glfw.wl.libdecor.handle = _glfwPlatformLoadModule("libdecor-0.so.0");
@@ -834,21 +789,11 @@ int _glfwInitWayland(void)
     }
 #endif
 
-<<<<<<< HEAD
-    _glfwInitTimerPOSIX();
-
-#ifdef WL_KEYBOARD_REPEAT_INFO_SINCE_VERSION
-    if (wl_seat_get_version(_glfw.wl.seat) >= WL_KEYBOARD_REPEAT_INFO_SINCE_VERSION)
-    {
-        _glfw.wl.keyRepeatTimerfd =
-            timerfd_create(CLOCK_MONOTONIC, TFD_CLOEXEC | TFD_NONBLOCK);
-=======
     if (!_glfw.wl.wmBase)
     {
         _glfwInputError(GLFW_PLATFORM_ERROR,
                         "Wayland: Failed to find xdg-shell in your compositor");
         return GLFW_FALSE;
->>>>>>> source/master
     }
 #endif
 
@@ -895,8 +840,6 @@ void _glfwTerminateWayland(void)
     _glfwTerminateEGL();
     _glfwTerminateOSMesa();
 
-<<<<<<< HEAD
-=======
     if (_glfw.wl.libdecor.context)
         libdecor_unref(_glfw.wl.libdecor.context);
 
@@ -906,7 +849,6 @@ void _glfwTerminateWayland(void)
         _glfw.wl.libdecor.handle = NULL;
     }
 
->>>>>>> source/master
     if (_glfw.wl.egl.handle)
     {
         _glfwPlatformFreeModule(_glfw.wl.egl.handle);
@@ -940,11 +882,7 @@ void _glfwTerminateWayland(void)
     for (unsigned int i = 0; i < _glfw.wl.offerCount; i++)
         wl_data_offer_destroy(_glfw.wl.offers[i].offer);
 
-<<<<<<< HEAD
-    free(_glfw.wl.offers);
-=======
     _glfw_free(_glfw.wl.offers);
->>>>>>> source/master
 
     if (_glfw.wl.cursorSurface)
         wl_surface_destroy(_glfw.wl.cursorSurface);
@@ -995,11 +933,7 @@ void _glfwTerminateWayland(void)
     if (_glfw.wl.cursorTimerfd >= 0)
         close(_glfw.wl.cursorTimerfd);
 
-<<<<<<< HEAD
-    free(_glfw.wl.clipboardString);
-=======
     _glfw_free(_glfw.wl.clipboardString);
->>>>>>> source/master
 }
 
 #endif // _GLFW_WAYLAND

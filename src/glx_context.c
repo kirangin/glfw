@@ -230,11 +230,7 @@ static GLFWglproc getProcAddressGLX(const char* procname)
     else
     {
         // NOTE: glvnd provides GLX 1.4, so this can only happen with libGL
-<<<<<<< HEAD
-        return _glfw_dlsym(_glfw.glx.handle, procname);
-=======
         return _glfwPlatformGetModuleSymbol(_glfw.glx.handle, procname);
->>>>>>> source/master
     }
 }
 
@@ -294,34 +290,6 @@ GLFWbool _glfwInitGLX(void)
         return GLFW_FALSE;
     }
 
-<<<<<<< HEAD
-    _glfw.glx.GetFBConfigs =
-        _glfw_dlsym(_glfw.glx.handle, "glXGetFBConfigs");
-    _glfw.glx.GetFBConfigAttrib =
-        _glfw_dlsym(_glfw.glx.handle, "glXGetFBConfigAttrib");
-    _glfw.glx.GetClientString =
-        _glfw_dlsym(_glfw.glx.handle, "glXGetClientString");
-    _glfw.glx.QueryExtension =
-        _glfw_dlsym(_glfw.glx.handle, "glXQueryExtension");
-    _glfw.glx.QueryVersion =
-        _glfw_dlsym(_glfw.glx.handle, "glXQueryVersion");
-    _glfw.glx.DestroyContext =
-        _glfw_dlsym(_glfw.glx.handle, "glXDestroyContext");
-    _glfw.glx.MakeCurrent =
-        _glfw_dlsym(_glfw.glx.handle, "glXMakeCurrent");
-    _glfw.glx.SwapBuffers =
-        _glfw_dlsym(_glfw.glx.handle, "glXSwapBuffers");
-    _glfw.glx.QueryExtensionsString =
-        _glfw_dlsym(_glfw.glx.handle, "glXQueryExtensionsString");
-    _glfw.glx.CreateNewContext =
-        _glfw_dlsym(_glfw.glx.handle, "glXCreateNewContext");
-    _glfw.glx.CreateWindow =
-        _glfw_dlsym(_glfw.glx.handle, "glXCreateWindow");
-    _glfw.glx.DestroyWindow =
-        _glfw_dlsym(_glfw.glx.handle, "glXDestroyWindow");
-    _glfw.glx.GetVisualFromFBConfig =
-        _glfw_dlsym(_glfw.glx.handle, "glXGetVisualFromFBConfig");
-=======
     _glfw.glx.GetFBConfigs = (PFNGLXGETFBCONFIGSPROC)
         _glfwPlatformGetModuleSymbol(_glfw.glx.handle, "glXGetFBConfigs");
     _glfw.glx.GetFBConfigAttrib = (PFNGLXGETFBCONFIGATTRIBPROC)
@@ -348,7 +316,6 @@ GLFWbool _glfwInitGLX(void)
         _glfwPlatformGetModuleSymbol(_glfw.glx.handle, "glXDestroyWindow");
     _glfw.glx.GetVisualFromFBConfig = (PFNGLXGETVISUALFROMFBCONFIGPROC)
         _glfwPlatformGetModuleSymbol(_glfw.glx.handle, "glXGetVisualFromFBConfig");
->>>>>>> source/master
 
     if (!_glfw.glx.GetFBConfigs ||
         !_glfw.glx.GetFBConfigAttrib ||
@@ -371,15 +338,9 @@ GLFWbool _glfwInitGLX(void)
 
     // NOTE: Unlike GLX 1.3 entry points these are not required to be present
     _glfw.glx.GetProcAddress = (PFNGLXGETPROCADDRESSPROC)
-<<<<<<< HEAD
-        _glfw_dlsym(_glfw.glx.handle, "glXGetProcAddress");
-    _glfw.glx.GetProcAddressARB = (PFNGLXGETPROCADDRESSPROC)
-        _glfw_dlsym(_glfw.glx.handle, "glXGetProcAddressARB");
-=======
         _glfwPlatformGetModuleSymbol(_glfw.glx.handle, "glXGetProcAddress");
     _glfw.glx.GetProcAddressARB = (PFNGLXGETPROCADDRESSPROC)
         _glfwPlatformGetModuleSymbol(_glfw.glx.handle, "glXGetProcAddressARB");
->>>>>>> source/master
 
     if (!glXQueryExtension(_glfw.x11.display,
                            &_glfw.glx.errorBase,
@@ -720,15 +681,12 @@ GLFWAPI GLXContext glfwGetGLXContext(GLFWwindow* handle)
     _GLFWwindow* window = (_GLFWwindow*) handle;
     _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
 
-<<<<<<< HEAD
-=======
     if (_glfw.platform.platformID != GLFW_PLATFORM_X11)
     {
         _glfwInputError(GLFW_PLATFORM_UNAVAILABLE, "GLX: Platform not initialized");
         return NULL;
     }
 
->>>>>>> source/master
     if (window->context.source != GLFW_NATIVE_CONTEXT_API)
     {
         _glfwInputError(GLFW_NO_WINDOW_CONTEXT, NULL);
@@ -743,15 +701,12 @@ GLFWAPI GLXWindow glfwGetGLXWindow(GLFWwindow* handle)
     _GLFWwindow* window = (_GLFWwindow*) handle;
     _GLFW_REQUIRE_INIT_OR_RETURN(None);
 
-<<<<<<< HEAD
-=======
     if (_glfw.platform.platformID != GLFW_PLATFORM_X11)
     {
         _glfwInputError(GLFW_PLATFORM_UNAVAILABLE, "GLX: Platform not initialized");
         return None;
     }
 
->>>>>>> source/master
     if (window->context.source != GLFW_NATIVE_CONTEXT_API)
     {
         _glfwInputError(GLFW_NO_WINDOW_CONTEXT, NULL);

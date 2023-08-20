@@ -858,10 +858,6 @@ struct _GLFWlibrary
         GLFWbool        KHR_win32_surface;
         GLFWbool        MVK_macos_surface;
         GLFWbool        EXT_metal_surface;
-<<<<<<< HEAD
-#elif defined(_GLFW_X11)
-=======
->>>>>>> source/master
         GLFWbool        KHR_xlib_surface;
         GLFWbool        KHR_xcb_surface;
         GLFWbool        KHR_wayland_surface;

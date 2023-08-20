@@ -100,19 +100,11 @@ static void updateCursorMode(_GLFWwindow* window)
     else if (_glfw.ns.disabledCursorWindow == window)
     {
         _glfw.ns.disabledCursorWindow = NULL;
-<<<<<<< HEAD
-        _glfwPlatformSetCursorPos(window,
-                                  _glfw.ns.restoreCursorPosX,
-                                  _glfw.ns.restoreCursorPosY);
-        // NOTE: The matching CGAssociateMouseAndMouseCursorPosition call is
-        //       made in _glfwPlatformSetCursorPos as part of a workaround
-=======
         _glfwSetCursorPosCocoa(window,
                                _glfw.ns.restoreCursorPosX,
                                _glfw.ns.restoreCursorPosY);
         // NOTE: The matching CGAssociateMouseAndMouseCursorPosition call is
         //       made in _glfwSetCursorPosCocoa as part of a workaround
->>>>>>> source/master
     }
 
     if (cursorInContentArea(window))
@@ -855,12 +847,6 @@ static GLFWbool createNativeWindow(_GLFWwindow* window,
         [window->ns.object setLevel:NSMainMenuWindowLevel + 1];
     else
     {
-<<<<<<< HEAD
-        [(NSWindow*) window->ns.object center];
-        _glfw.ns.cascadePoint =
-            NSPointToCGPoint([window->ns.object cascadeTopLeftFromPoint:
-                              NSPointFromCGPoint(_glfw.ns.cascadePoint)]);
-=======
         if (wndconfig->xpos == GLFW_ANY_POSITION ||
             wndconfig->ypos == GLFW_ANY_POSITION)
         {
@@ -869,7 +855,6 @@ static GLFWbool createNativeWindow(_GLFWwindow* window,
                 NSPointToCGPoint([window->ns.object cascadeTopLeftFromPoint:
                                 NSPointFromCGPoint(_glfw.ns.cascadePoint)]);
         }
->>>>>>> source/master
 
         if (wndconfig->resizable)
         {
@@ -947,12 +932,6 @@ GLFWbool _glfwCreateWindowCocoa(_GLFWwindow* window,
 {
     @autoreleasepool {
 
-<<<<<<< HEAD
-    if (!_glfw.ns.finishedLaunching)
-        [NSApp run];
-
-=======
->>>>>>> source/master
     if (!createNativeWindow(window, wndconfig, fbconfig))
         return GLFW_FALSE;
 
@@ -1005,15 +984,9 @@ GLFWbool _glfwCreateWindowCocoa(_GLFWwindow* window,
     {
         if (wndconfig->visible)
         {
-<<<<<<< HEAD
-            _glfwPlatformShowWindow(window);
-            if (wndconfig->focused)
-                _glfwPlatformFocusWindow(window);
-=======
             _glfwShowWindowCocoa(window);
             if (wndconfig->focused)
                 _glfwFocusWindowCocoa(window);
->>>>>>> source/master
         }
     }
 
@@ -1048,20 +1021,12 @@ void _glfwDestroyWindowCocoa(_GLFWwindow* window)
     window->ns.object = nil;
 
     // HACK: Allow Cocoa to catch up before returning
-<<<<<<< HEAD
-    _glfwPlatformPollEvents();
-=======
     _glfwPollEventsCocoa();
->>>>>>> source/master
 
     } // autoreleasepool
 }
 
-<<<<<<< HEAD
-void _glfwPlatformSetWindowTitle(_GLFWwindow* window, const char* title)
-=======
 void _glfwSetWindowTitleCocoa(_GLFWwindow* window, const char* title)
->>>>>>> source/master
 {
     @autoreleasepool {
     NSString* string = @(title);
@@ -1301,11 +1266,7 @@ void _glfwSetWindowMonitorCocoa(_GLFWwindow* window,
         else
         {
             const NSRect contentRect =
-<<<<<<< HEAD
-                NSMakeRect(xpos, _glfwTransformYNS(ypos + height - 1), width, height);
-=======
                 NSMakeRect(xpos, _glfwTransformYCocoa(ypos + height - 1), width, height);
->>>>>>> source/master
             const NSUInteger styleMask = [window->ns.object styleMask];
             const NSRect frameRect =
                 [window->ns.object frameRectForContentRect:contentRect
@@ -1347,30 +1308,6 @@ void _glfwSetWindowMonitorCocoa(_GLFWwindow* window,
             styleMask &= ~NSWindowStyleMaskResizable;
     }
 
-<<<<<<< HEAD
-    NSUInteger styleMask = [window->ns.object styleMask];
-
-    if (window->monitor)
-    {
-        styleMask &= ~(NSWindowStyleMaskTitled | NSWindowStyleMaskClosable);
-        styleMask |= NSWindowStyleMaskBorderless;
-    }
-    else
-    {
-        if (window->decorated)
-        {
-            styleMask &= ~NSWindowStyleMaskBorderless;
-            styleMask |= (NSWindowStyleMaskTitled | NSWindowStyleMaskClosable);
-        }
-
-        if (window->resizable)
-            styleMask |= NSWindowStyleMaskResizable;
-        else
-            styleMask &= ~NSWindowStyleMaskResizable;
-    }
-
-=======
->>>>>>> source/master
     [window->ns.object setStyleMask:styleMask];
     // HACK: Changing the style mask can cause the first responder to be cleared
     [window->ns.object makeFirstResponder:window->ns.view];
@@ -1965,18 +1902,6 @@ const char* _glfwGetClipboardStringCocoa(void)
 
 EGLenum _glfwGetEGLPlatformCocoa(EGLint** attribs)
 {
-<<<<<<< HEAD
-    if (_glfw.vk.KHR_surface && _glfw.vk.EXT_metal_surface)
-    {
-        extensions[0] = "VK_KHR_surface";
-        extensions[1] = "VK_EXT_metal_surface";
-    }
-    else if (_glfw.vk.KHR_surface && _glfw.vk.MVK_macos_surface)
-    {
-        extensions[0] = "VK_KHR_surface";
-        extensions[1] = "VK_MVK_macos_surface";
-    }
-=======
     if (_glfw.egl.ANGLE_platform_angle)
     {
         int type = 0;
@@ -2004,7 +1929,6 @@ EGLenum _glfwGetEGLPlatformCocoa(EGLint** attribs)
     }
 
     return 0;
->>>>>>> source/master
 }
 
 EGLNativeDisplayType _glfwGetEGLNativeDisplayCocoa(void)

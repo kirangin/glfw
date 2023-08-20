@@ -27,12 +27,8 @@
 #include <wayland-client-core.h>
 #include <xkbcommon/xkbcommon.h>
 #include <xkbcommon/xkbcommon-compose.h>
-<<<<<<< HEAD
-#include <dlfcn.h>
-=======
 
 #include <stdbool.h>
->>>>>>> source/master
 
 typedef VkFlags VkWaylandSurfaceCreateFlagsKHR;
 
@@ -94,18 +90,6 @@ typedef struct wl_proxy* (* PFN_wl_proxy_marshal_flags)(struct wl_proxy*,uint32_
 struct wl_shm;
 struct wl_output;
 
-<<<<<<< HEAD
-#define _GLFW_EGL_NATIVE_WINDOW         ((EGLNativeWindowType) window->wl.egl.window)
-#define _GLFW_EGL_NATIVE_DISPLAY        ((EGLNativeDisplayType) _glfw.wl.display)
-
-#define _GLFW_PLATFORM_WINDOW_STATE         _GLFWwindowWayland  wl
-#define _GLFW_PLATFORM_LIBRARY_WINDOW_STATE _GLFWlibraryWayland wl
-#define _GLFW_PLATFORM_MONITOR_STATE        _GLFWmonitorWayland wl
-#define _GLFW_PLATFORM_CURSOR_STATE         _GLFWcursorWayland  wl
-
-#define _GLFW_PLATFORM_CONTEXT_STATE         struct { int dummyContext; }
-#define _GLFW_PLATFORM_LIBRARY_CONTEXT_STATE struct { int dummyLibraryContext; }
-=======
 #define wl_display_interface _glfw_wl_display_interface
 #define wl_subcompositor_interface _glfw_wl_subcompositor_interface
 #define wl_compositor_interface _glfw_wl_compositor_interface
@@ -150,7 +134,6 @@ struct wl_output;
 #define GLFW_WAYLAND_LIBRARY_WINDOW_STATE _GLFWlibraryWayland wl;
 #define GLFW_WAYLAND_MONITOR_STATE        _GLFWmonitorWayland wl;
 #define GLFW_WAYLAND_CURSOR_STATE         _GLFWcursorWayland  wl;
->>>>>>> source/master
 
 struct wl_cursor_image {
     uint32_t width;
@@ -221,8 +204,6 @@ typedef xkb_keysym_t (* PFN_xkb_compose_state_get_one_sym)(struct xkb_compose_st
 #define xkb_compose_state_feed _glfw.wl.xkb.compose_state_feed
 #define xkb_compose_state_get_status _glfw.wl.xkb.compose_state_get_status
 #define xkb_compose_state_get_one_sym _glfw.wl.xkb.compose_state_get_one_sym
-<<<<<<< HEAD
-=======
 
 struct libdecor;
 struct libdecor_frame;
@@ -339,7 +320,6 @@ typedef void (* PFN_libdecor_state_free)(struct libdecor_state*);
 #define libdecor_configuration_get_window_state _glfw.wl.libdecor.libdecor_configuration_get_window_state_
 #define libdecor_state_new _glfw.wl.libdecor.libdecor_state_new_
 #define libdecor_state_free _glfw.wl.libdecor.libdecor_state_free_
->>>>>>> source/master
 
 typedef enum _GLFWdecorationSideWayland
 {
@@ -423,10 +403,7 @@ typedef struct _GLFWwindowWayland
 
     struct zwp_relative_pointer_v1* relativePointer;
     struct zwp_locked_pointer_v1*   lockedPointer;
-<<<<<<< HEAD
-=======
     struct zwp_confined_pointer_v1* confinedPointer;
->>>>>>> source/master
 
     struct zwp_idle_inhibitor_v1*          idleInhibitor;
 
@@ -493,10 +470,6 @@ typedef struct _GLFWlibraryWayland
         struct xkb_context*     context;
         struct xkb_keymap*      keymap;
         struct xkb_state*       state;
-<<<<<<< HEAD
-=======
-
->>>>>>> source/master
         struct xkb_compose_state* composeState;
 
         xkb_mod_index_t         controlIndex;
@@ -572,8 +545,6 @@ typedef struct _GLFWlibraryWayland
         PFN_wl_egl_window_destroy window_destroy;
         PFN_wl_egl_window_resize window_resize;
     } egl;
-<<<<<<< HEAD
-=======
 
     struct {
         void*                   handle;
@@ -604,7 +575,6 @@ typedef struct _GLFWlibraryWayland
         PFN_libdecor_state_new libdecor_state_new_;
         PFN_libdecor_state_free libdecor_state_free_;
     } libdecor;
->>>>>>> source/master
 } _GLFWlibraryWayland;
 
 // Wayland-specific per-monitor data
@@ -632,8 +602,6 @@ typedef struct _GLFWcursorWayland
     int                         currentImage;
 } _GLFWcursorWayland;
 
-<<<<<<< HEAD
-=======
 GLFWbool _glfwConnectWayland(int platformID, _GLFWplatform* platform);
 int _glfwInitWayland(void);
 void _glfwTerminateWayland(void);
@@ -709,7 +677,6 @@ void _glfwGetVideoModeWayland(_GLFWmonitor* monitor, GLFWvidmode* mode);
 GLFWbool _glfwGetGammaRampWayland(_GLFWmonitor* monitor, GLFWgammaramp* ramp);
 void _glfwSetGammaRampWayland(_GLFWmonitor* monitor, const GLFWgammaramp* ramp);
 
->>>>>>> source/master
 void _glfwAddOutputWayland(uint32_t name, uint32_t version);
 void _glfwUpdateContentScaleWayland(_GLFWwindow* window);
 

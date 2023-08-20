@@ -29,22 +29,7 @@
 
 #include "internal.h"
 
-<<<<<<< HEAD
-
-//////////////////////////////////////////////////////////////////////////
-//////                       GLFW internal API                      //////
-//////////////////////////////////////////////////////////////////////////
-
-// Initialise timer
-//
-void _glfwInitTimerWin32(void)
-{
-    QueryPerformanceFrequency((LARGE_INTEGER*) &_glfw.timer.win32.frequency);
-}
-
-=======
 #if defined(GLFW_BUILD_WIN32_TIMER)
->>>>>>> source/master
 
 //////////////////////////////////////////////////////////////////////////
 //////                       GLFW platform API                      //////

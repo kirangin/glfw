@@ -299,11 +299,7 @@ void _glfwPollMonitorsCocoa(void)
 {
     uint32_t displayCount;
     CGGetOnlineDisplayList(0, NULL, &displayCount);
-<<<<<<< HEAD
-    CGDirectDisplayID* displays = calloc(displayCount, sizeof(CGDirectDisplayID));
-=======
     CGDirectDisplayID* displays = _glfw_calloc(displayCount, sizeof(CGDirectDisplayID));
->>>>>>> source/master
     CGGetOnlineDisplayList(displayCount, displays, &displayCount);
 
     for (int i = 0;  i < _glfw.monitorCount;  i++)
@@ -395,11 +391,7 @@ void _glfwPollMonitorsCocoa(void)
 void _glfwSetVideoModeCocoa(_GLFWmonitor* monitor, const GLFWvidmode* desired)
 {
     GLFWvidmode current;
-<<<<<<< HEAD
-    _glfwPlatformGetVideoMode(monitor, &current);
-=======
     _glfwGetVideoModeCocoa(monitor, &current);
->>>>>>> source/master
 
     const GLFWvidmode* best = _glfwChooseVideoMode(monitor, desired);
     if (_glfwCompareVideoModes(&current, best) == 0)
@@ -532,11 +524,7 @@ GLFWvidmode* _glfwGetVideoModesCocoa(_GLFWmonitor* monitor, int* count)
 
     CFArrayRef modes = CGDisplayCopyAllDisplayModes(monitor->ns.displayID, NULL);
     const CFIndex found = CFArrayGetCount(modes);
-<<<<<<< HEAD
-    GLFWvidmode* result = calloc(found, sizeof(GLFWvidmode));
-=======
     GLFWvidmode* result = _glfw_calloc(found, sizeof(GLFWvidmode));
->>>>>>> source/master
 
     for (CFIndex i = 0;  i < found;  i++)
     {
@@ -584,11 +572,7 @@ GLFWbool _glfwGetGammaRampCocoa(_GLFWmonitor* monitor, GLFWgammaramp* ramp)
     @autoreleasepool {
 
     uint32_t size = CGDisplayGammaTableCapacity(monitor->ns.displayID);
-<<<<<<< HEAD
-    CGGammaValue* values = calloc(size * 3, sizeof(CGGammaValue));
-=======
     CGGammaValue* values = _glfw_calloc(size * 3, sizeof(CGGammaValue));
->>>>>>> source/master
 
     CGGetDisplayTransferByTable(monitor->ns.displayID,
                                 size,
@@ -616,11 +600,7 @@ void _glfwSetGammaRampCocoa(_GLFWmonitor* monitor, const GLFWgammaramp* ramp)
 {
     @autoreleasepool {
 
-<<<<<<< HEAD
-    CGGammaValue* values = calloc(ramp->size * 3, sizeof(CGGammaValue));
-=======
     CGGammaValue* values = _glfw_calloc(ramp->size * 3, sizeof(CGGammaValue));
->>>>>>> source/master
 
     for (unsigned int i = 0;  i < ramp->size;  i++)
     {

@@ -291,11 +291,7 @@ extern "C" {
  *  features are added to the API but it remains backward-compatible.
  *  @ingroup init
  */
-<<<<<<< HEAD
-#define GLFW_VERSION_MINOR          3
-=======
 #define GLFW_VERSION_MINOR          4
->>>>>>> source/master
 /*! @brief The revision number of the GLFW header.
  *
  *  The revision number of the GLFW header.  This is incremented when a bug fix
@@ -1063,13 +1059,8 @@ extern "C" {
 #define GLFW_OPENGL_FORWARD_COMPAT  0x00022006
 /*! @brief Debug mode context hint and attribute.
  *
-<<<<<<< HEAD
- *  Debug mode context [hint](@ref GLFW_OPENGL_DEBUG_CONTEXT_hint) and
- *  [attribute](@ref GLFW_OPENGL_DEBUG_CONTEXT_attrib).
-=======
  *  Debug mode context [hint](@ref GLFW_CONTEXT_DEBUG_hint) and
  *  [attribute](@ref GLFW_CONTEXT_DEBUG_attrib).
->>>>>>> source/master
  */
 #define GLFW_CONTEXT_DEBUG          0x00022007
 /*! @brief Legacy name for compatibility.
@@ -1411,16 +1402,6 @@ typedef struct GLFWwindow GLFWwindow;
  */
 typedef struct GLFWcursor GLFWcursor;
 
-<<<<<<< HEAD
-/*! @brief The function pointer type for error callbacks.
- *
- *  This is the function pointer type for error callbacks.  An error callback
- *  function has the following signature:
- *  @code
- *  void callback_name(int error_code, const char* description)
- *  @endcode
- *
-=======
 /*! @brief The function pointer type for memory allocation callbacks.
  *
  *  This is the function pointer type for memory allocation callbacks.  A memory
@@ -1554,7 +1535,6 @@ typedef void (* GLFWdeallocatefun)(void* block, void* user);
  *  void callback_name(int error_code, const char* description)
  *  @endcode
  *
->>>>>>> source/master
  *  @param[in] error_code An [error code](@ref errors).  Future releases may add
  *  more error codes.
  *  @param[in] description A UTF-8 encoded string describing the error.
@@ -1862,11 +1842,7 @@ typedef void (* GLFWscrollfun)(GLFWwindow* window, double xoffset, double yoffse
  *
  *  @param[in] window The window that received the event.
  *  @param[in] key The [keyboard key](@ref keys) that was pressed or released.
-<<<<<<< HEAD
- *  @param[in] scancode The system-specific scancode of the key.
-=======
  *  @param[in] scancode The platform-specific scancode of the key.
->>>>>>> source/master
  *  @param[in] action `GLFW_PRESS`, `GLFW_RELEASE` or `GLFW_REPEAT`.  Future
  *  releases may add more actions.
  *  @param[in] mods Bit field describing which [modifier keys](@ref mods) were
@@ -2158,8 +2134,6 @@ typedef struct GLFWallocator
  *  bundle, if present.  This can be disabled with the @ref
  *  GLFW_COCOA_CHDIR_RESOURCES init hint.
  *
-<<<<<<< HEAD
-=======
  *  @remark @macos This function will create the main menu and dock icon for the
  *  application.  If GLFW finds a `MainMenu.nib` it is loaded and assumed to
  *  contain a menu bar.  Otherwise a minimal menu bar is created manually with
@@ -2168,7 +2142,6 @@ typedef struct GLFWallocator
  *  and dock icon can be disabled entirely with the @ref GLFW_COCOA_MENUBAR init
  *  hint.
  *
->>>>>>> source/master
  *  @remark @x11 This function will set the `LC_CTYPE` category of the
  *  application locale according to the current environment if that category is
  *  still "C".  This is because the "C" locale breaks Unicode text input.
@@ -2464,8 +2437,6 @@ GLFWAPI int glfwGetError(const char** description);
  *  @ingroup init
  */
 GLFWAPI GLFWerrorfun glfwSetErrorCallback(GLFWerrorfun callback);
-<<<<<<< HEAD
-=======
 
 /*! @brief Returns the currently selected platform.
  *
@@ -2511,7 +2482,6 @@ GLFWAPI int glfwGetPlatform(void);
  *  @ingroup init
  */
 GLFWAPI int glfwPlatformSupported(int platform);
->>>>>>> source/master
 
 /*! @brief Returns the currently connected monitors.
  *
@@ -2877,11 +2847,7 @@ GLFWAPI const GLFWvidmode* glfwGetVideoMode(GLFWmonitor* monitor);
  *  @ref GLFW_PLATFORM_ERROR and @ref GLFW_FEATURE_UNAVAILABLE (see remarks).
  *
  *  @remark @wayland Gamma handling is a privileged protocol, this function
-<<<<<<< HEAD
- *  will thus never be implemented and emits @ref GLFW_PLATFORM_ERROR.
-=======
  *  will thus never be implemented and emits @ref GLFW_FEATURE_UNAVAILABLE.
->>>>>>> source/master
  *
  *  @thread_safety This function must only be called from the main thread.
  *
@@ -2905,11 +2871,7 @@ GLFWAPI void glfwSetGamma(GLFWmonitor* monitor, float gamma);
  *  and @ref GLFW_FEATURE_UNAVAILABLE (see remarks).
  *
  *  @remark @wayland Gamma handling is a privileged protocol, this function
-<<<<<<< HEAD
- *  will thus never be implemented and emits @ref GLFW_PLATFORM_ERROR while
-=======
  *  will thus never be implemented and emits @ref GLFW_FEATURE_UNAVAILABLE while
->>>>>>> source/master
  *  returning `NULL`.
  *
  *  @pointer_lifetime The returned structure and its arrays are allocated and
@@ -2953,11 +2915,7 @@ GLFWAPI const GLFWgammaramp* glfwGetGammaRamp(GLFWmonitor* monitor);
  *  @remark @win32 The gamma ramp size must be 256.
  *
  *  @remark @wayland Gamma handling is a privileged protocol, this function
-<<<<<<< HEAD
- *  will thus never be implemented and emits @ref GLFW_PLATFORM_ERROR.
-=======
  *  will thus never be implemented and emits @ref GLFW_FEATURE_UNAVAILABLE.
->>>>>>> source/master
  *
  *  @pointer_lifetime The specified gamma ramp is copied before this function
  *  returns.
@@ -3328,12 +3286,8 @@ GLFWAPI void glfwSetWindowTitle(GLFWwindow* window, const char* title);
  *  count is zero.
  *
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED, @ref
-<<<<<<< HEAD
- *  GLFW_INVALID_VALUE and @ref GLFW_PLATFORM_ERROR.
-=======
  *  GLFW_INVALID_VALUE, @ref GLFW_PLATFORM_ERROR and @ref
  *  GLFW_FEATURE_UNAVAILABLE (see remarks).
->>>>>>> source/master
  *
  *  @pointer_lifetime The specified image data is copied before this function
  *  returns.
@@ -3755,13 +3709,10 @@ GLFWAPI void glfwSetWindowOpacity(GLFWwindow* window, float opacity);
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED and @ref
  *  GLFW_PLATFORM_ERROR.
  *
-<<<<<<< HEAD
-=======
  *  @remark @wayland Once a window is iconified, @ref glfwRestoreWindow won’t
  *  be able to restore it.  This is a design decision of the xdg-shell
  *  protocol.
  *
->>>>>>> source/master
  *  @thread_safety This function must only be called from the main thread.
  *
  *  @sa @ref window_iconify
@@ -4343,16 +4294,8 @@ GLFWAPI GLFWwindowfocusfun glfwSetWindowFocusCallback(GLFWwindow* window, GLFWwi
  *  @endcode
  *  For more information about the callback parameters, see the
  *  [function pointer type](@ref GLFWwindowiconifyfun).
-<<<<<<< HEAD
  *
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED.
- *
- *  @remark @wayland The XDG-shell protocol has no event for iconification, so
- *  this callback will never be called.
-=======
- *
- *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED.
->>>>>>> source/master
  *
  *  @thread_safety This function must only be called from the main thread.
  *

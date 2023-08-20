@@ -83,11 +83,7 @@ static GLFWbool loadLibraries(void)
         return GLFW_FALSE;
     }
 
-<<<<<<< HEAD
-    _glfw.win32.user32.instance = LoadLibraryA("user32.dll");
-=======
     _glfw.win32.user32.instance = _glfwPlatformLoadModule("user32.dll");
->>>>>>> source/master
     if (!_glfw.win32.user32.instance)
     {
         _glfwInputErrorWin32(GLFW_PLATFORM_ERROR,
@@ -106,15 +102,9 @@ static GLFWbool loadLibraries(void)
     _glfw.win32.user32.GetDpiForWindow_ = (PFN_GetDpiForWindow)
         _glfwPlatformGetModuleSymbol(_glfw.win32.user32.instance, "GetDpiForWindow");
     _glfw.win32.user32.AdjustWindowRectExForDpi_ = (PFN_AdjustWindowRectExForDpi)
-<<<<<<< HEAD
-        GetProcAddress(_glfw.win32.user32.instance, "AdjustWindowRectExForDpi");
-    _glfw.win32.user32.GetSystemMetricsForDpi_ = (PFN_GetSystemMetricsForDpi)
-        GetProcAddress(_glfw.win32.user32.instance, "GetSystemMetricsForDpi");
-=======
         _glfwPlatformGetModuleSymbol(_glfw.win32.user32.instance, "AdjustWindowRectExForDpi");
     _glfw.win32.user32.GetSystemMetricsForDpi_ = (PFN_GetSystemMetricsForDpi)
         _glfwPlatformGetModuleSymbol(_glfw.win32.user32.instance, "GetSystemMetricsForDpi");
->>>>>>> source/master
 
     _glfw.win32.dinput8.instance = _glfwPlatformLoadModule("dinput8.dll");
     if (_glfw.win32.dinput8.instance)
@@ -158,15 +148,9 @@ static GLFWbool loadLibraries(void)
         _glfw.win32.dwmapi.Flush = (PFN_DwmFlush)
             _glfwPlatformGetModuleSymbol(_glfw.win32.dwmapi.instance, "DwmFlush");
         _glfw.win32.dwmapi.EnableBlurBehindWindow = (PFN_DwmEnableBlurBehindWindow)
-<<<<<<< HEAD
-            GetProcAddress(_glfw.win32.dwmapi.instance, "DwmEnableBlurBehindWindow");
-        _glfw.win32.dwmapi.GetColorizationColor = (PFN_DwmGetColorizationColor)
-            GetProcAddress(_glfw.win32.dwmapi.instance, "DwmGetColorizationColor");
-=======
             _glfwPlatformGetModuleSymbol(_glfw.win32.dwmapi.instance, "DwmEnableBlurBehindWindow");
         _glfw.win32.dwmapi.GetColorizationColor = (PFN_DwmGetColorizationColor)
             _glfwPlatformGetModuleSymbol(_glfw.win32.dwmapi.instance, "DwmGetColorizationColor");
->>>>>>> source/master
     }
 
     _glfw.win32.shcore.instance = _glfwPlatformLoadModule("shcore.dll");
@@ -196,11 +180,7 @@ static void freeLibraries(void)
         _glfwPlatformFreeModule(_glfw.win32.xinput.instance);
 
     if (_glfw.win32.dinput8.instance)
-<<<<<<< HEAD
-        FreeLibrary(_glfw.win32.dinput8.instance);
-=======
         _glfwPlatformFreeModule(_glfw.win32.dinput8.instance);
->>>>>>> source/master
 
     if (_glfw.win32.user32.instance)
         _glfwPlatformFreeModule(_glfw.win32.user32.instance);
@@ -743,11 +723,6 @@ void _glfwTerminateWin32(void)
     _glfwTerminateWGL();
     _glfwTerminateEGL();
     _glfwTerminateOSMesa();
-<<<<<<< HEAD
-
-    _glfwTerminateJoysticksWin32();
-=======
->>>>>>> source/master
 
     freeLibraries();
 }

@@ -140,10 +140,7 @@ static GLFWbool chooseEGLConfig(const _GLFWctxconfig* ctxconfig,
             continue;
 
 #if defined(_GLFW_X11)
-<<<<<<< HEAD
-=======
         if (_glfw.platform.platformID == GLFW_PLATFORM_X11)
->>>>>>> source/master
         {
             XVisualInfo vi = {0};
 
@@ -181,16 +178,6 @@ static GLFWbool chooseEGLConfig(const _GLFWctxconfig* ctxconfig,
         u->stencilBits = getEGLConfigAttrib(n, EGL_STENCIL_SIZE);
 
 #if defined(_GLFW_WAYLAND)
-<<<<<<< HEAD
-        // NOTE: The wl_surface opaque region is no guarantee that its buffer
-        //       is presented as opaque, if it also has an alpha channel
-        // HACK: If EGL_EXT_present_opaque is unavailable, ignore any config
-        //       with an alpha channel to ensure the buffer is opaque
-        if (!_glfw.egl.EXT_present_opaque)
-        {
-            if (!fbconfig->transparent && u->alphaBits > 0)
-                continue;
-=======
         if (_glfw.platform.platformID == GLFW_PLATFORM_WAYLAND)
         {
             // NOTE: The wl_surface opaque region is no guarantee that its buffer
@@ -202,7 +189,6 @@ static GLFWbool chooseEGLConfig(const _GLFWctxconfig* ctxconfig,
                 if (!fbconfig->transparent && u->alphaBits > 0)
                     continue;
             }
->>>>>>> source/master
         }
 #endif // _GLFW_WAYLAND
 
@@ -294,18 +280,12 @@ static void swapBuffersEGL(_GLFWwindow* window)
     }
 
 #if defined(_GLFW_WAYLAND)
-<<<<<<< HEAD
-    // NOTE: Swapping buffers on a hidden window on Wayland makes it visible
-    if (!window->wl.visible)
-        return;
-=======
     if (_glfw.platform.platformID == GLFW_PLATFORM_WAYLAND)
     {
         // NOTE: Swapping buffers on a hidden window on Wayland makes it visible
         if (!window->wl.visible)
             return;
     }
->>>>>>> source/master
 #endif
 
     eglSwapBuffers(_glfw.egl.display, window->context.egl.surface);
@@ -717,24 +697,6 @@ GLFWbool _glfwCreateContextEGL(_GLFWwindow* window,
     if (fbconfig->sRGB)
     {
         if (_glfw.egl.KHR_gl_colorspace)
-<<<<<<< HEAD
-            setAttrib(EGL_GL_COLORSPACE_KHR, EGL_GL_COLORSPACE_SRGB_KHR);
-    }
-
-    if (!fbconfig->doublebuffer)
-        setAttrib(EGL_RENDER_BUFFER, EGL_SINGLE_BUFFER);
-
-    if (_glfw.egl.EXT_present_opaque)
-        setAttrib(EGL_PRESENT_OPAQUE_EXT, !fbconfig->transparent);
-
-    setAttrib(EGL_NONE, EGL_NONE);
-
-    window->context.egl.surface =
-        eglCreateWindowSurface(_glfw.egl.display,
-                               config,
-                               _GLFW_EGL_NATIVE_WINDOW,
-                               attribs);
-=======
             SET_ATTRIB(EGL_GL_COLORSPACE_KHR, EGL_GL_COLORSPACE_SRGB_KHR);
     }
 
@@ -760,7 +722,6 @@ GLFWbool _glfwCreateContextEGL(_GLFWwindow* window,
             eglCreateWindowSurface(_glfw.egl.display, config, native, attribs);
     }
 
->>>>>>> source/master
     if (window->context.egl.surface == EGL_NO_SURFACE)
     {
         _glfwInputError(GLFW_PLATFORM_ERROR,

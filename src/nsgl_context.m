@@ -28,11 +28,8 @@
 
 #include "internal.h"
 
-<<<<<<< HEAD
-=======
 #if defined(_GLFW_COCOA)
 
->>>>>>> source/master
 #include <unistd.h>
 #include <math.h>
 
@@ -363,8 +360,6 @@ GLFWAPI id glfwGetNSGLContext(GLFWwindow* handle)
     _GLFWwindow* window = (_GLFWwindow*) handle;
     _GLFW_REQUIRE_INIT_OR_RETURN(nil);
 
-<<<<<<< HEAD
-=======
     if (_glfw.platform.platformID != GLFW_PLATFORM_COCOA)
     {
         _glfwInputError(GLFW_PLATFORM_UNAVAILABLE,
@@ -372,7 +367,6 @@ GLFWAPI id glfwGetNSGLContext(GLFWwindow* handle)
         return nil;
     }
 
->>>>>>> source/master
     if (window->context.source != GLFW_NATIVE_CONTEXT_API)
     {
         _glfwInputError(GLFW_NO_WINDOW_CONTEXT, NULL);

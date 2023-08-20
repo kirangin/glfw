@@ -27,10 +27,7 @@
 #include <stdint.h>
 
 #include <Carbon/Carbon.h>
-<<<<<<< HEAD
-=======
 #include <IOKit/hid/IOHIDLib.h>
->>>>>>> source/master
 
 // NOTE: All of NSGL was deprecated in the 10.14 SDK
 //       This disables the pointless warnings for every symbol we use
@@ -49,14 +46,11 @@ typedef void* id;
 //       We use the newer names in code and replace them with the older names if
 //       the base SDK does not provide the newer names.
 
-<<<<<<< HEAD
-=======
 #if MAC_OS_X_VERSION_MAX_ALLOWED < 101400
  #define NSOpenGLContextParameterSwapInterval NSOpenGLCPSwapInterval
  #define NSOpenGLContextParameterSurfaceOpacity NSOpenGLCPSurfaceOpacity
 #endif
 
->>>>>>> source/master
 #if MAC_OS_X_VERSION_MAX_ALLOWED < 101200
  #define NSBitmapFormatAlphaNonpremultiplied NSAlphaNonpremultipliedBitmapFormat
  #define NSEventMaskAny NSAnyEventMask
@@ -111,23 +105,8 @@ typedef VkResult (APIENTRY *PFN_vkCreateMetalSurfaceEXT)(VkInstance,const VkMeta
 #define GLFW_COCOA_MONITOR_STATE        _GLFWmonitorNS ns;
 #define GLFW_COCOA_CURSOR_STATE         _GLFWcursorNS  ns;
 
-<<<<<<< HEAD
-#define _glfw_dlopen(name) dlopen(name, RTLD_LAZY | RTLD_LOCAL)
-#define _glfw_dlclose(handle) dlclose(handle)
-#define _glfw_dlsym(handle, name) dlsym(handle, name)
-
-#define _GLFW_EGL_NATIVE_WINDOW  ((EGLNativeWindowType) window->ns.layer)
-#define _GLFW_EGL_NATIVE_DISPLAY EGL_DEFAULT_DISPLAY
-
-#define _GLFW_PLATFORM_WINDOW_STATE         _GLFWwindowNS  ns
-#define _GLFW_PLATFORM_LIBRARY_WINDOW_STATE _GLFWlibraryNS ns
-#define _GLFW_PLATFORM_LIBRARY_TIMER_STATE  _GLFWtimerNS   ns
-#define _GLFW_PLATFORM_MONITOR_STATE        _GLFWmonitorNS ns
-#define _GLFW_PLATFORM_CURSOR_STATE         _GLFWcursorNS  ns
-=======
 #define GLFW_NSGL_CONTEXT_STATE         _GLFWcontextNSGL nsgl;
 #define GLFW_NSGL_LIBRARY_CONTEXT_STATE _GLFWlibraryNSGL nsgl;
->>>>>>> source/master
 
 // HIToolbox.framework pointer typedefs
 #define kTISPropertyUnicodeKeyLayoutData _glfw.ns.tis.kPropertyUnicodeKeyLayoutData
@@ -230,19 +209,10 @@ typedef struct _GLFWcursorNS
     id              object;
 } _GLFWcursorNS;
 
-<<<<<<< HEAD
-// Cocoa-specific global timer data
-//
-typedef struct _GLFWtimerNS
-{
-    uint64_t        frequency;
-} _GLFWtimerNS;
-=======
 
 GLFWbool _glfwConnectCocoa(int platformID, _GLFWplatform* platform);
 int _glfwInitCocoa(void);
 void _glfwTerminateCocoa(void);
->>>>>>> source/master
 
 GLFWbool _glfwCreateWindowCocoa(_GLFWwindow* window, const _GLFWwndconfig* wndconfig, const _GLFWctxconfig* ctxconfig, const _GLFWfbconfig* fbconfig);
 void _glfwDestroyWindowCocoa(_GLFWwindow* window);

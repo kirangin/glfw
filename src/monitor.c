@@ -193,13 +193,8 @@ void _glfwFreeMonitor(_GLFWmonitor* monitor)
     _glfwFreeGammaArrays(&monitor->originalRamp);
     _glfwFreeGammaArrays(&monitor->currentRamp);
 
-<<<<<<< HEAD
-    free(monitor->modes);
-    free(monitor);
-=======
     _glfw_free(monitor->modes);
     _glfw_free(monitor);
->>>>>>> source/master
 }
 
 // Allocates red, green and blue value arrays of the specified size

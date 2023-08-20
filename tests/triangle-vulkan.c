@@ -1247,11 +1247,7 @@ static void demo_prepare_pipeline(struct demo *demo) {
     VkPipelineDepthStencilStateCreateInfo ds;
     VkPipelineViewportStateCreateInfo vp;
     VkPipelineMultisampleStateCreateInfo ms;
-<<<<<<< HEAD
-    VkDynamicState dynamicStateEnables[2];
-=======
     VkDynamicState dynamicStateEnables[(VK_DYNAMIC_STATE_STENCIL_REFERENCE - VK_DYNAMIC_STATE_VIEWPORT + 1)];
->>>>>>> source/master
     VkPipelineDynamicStateCreateInfo dynamicState;
 
     VkResult U_ASSERT_ONLY err;

@@ -81,30 +81,6 @@ static int choosePixelFormatWGL(_GLFWwindow* window,
 
     if (_glfw.wgl.ARB_pixel_format)
     {
-<<<<<<< HEAD
-        addAttrib(WGL_SUPPORT_OPENGL_ARB);
-        addAttrib(WGL_DRAW_TO_WINDOW_ARB);
-        addAttrib(WGL_PIXEL_TYPE_ARB);
-        addAttrib(WGL_ACCELERATION_ARB);
-        addAttrib(WGL_RED_BITS_ARB);
-        addAttrib(WGL_RED_SHIFT_ARB);
-        addAttrib(WGL_GREEN_BITS_ARB);
-        addAttrib(WGL_GREEN_SHIFT_ARB);
-        addAttrib(WGL_BLUE_BITS_ARB);
-        addAttrib(WGL_BLUE_SHIFT_ARB);
-        addAttrib(WGL_ALPHA_BITS_ARB);
-        addAttrib(WGL_ALPHA_SHIFT_ARB);
-        addAttrib(WGL_DEPTH_BITS_ARB);
-        addAttrib(WGL_STENCIL_BITS_ARB);
-        addAttrib(WGL_ACCUM_BITS_ARB);
-        addAttrib(WGL_ACCUM_RED_BITS_ARB);
-        addAttrib(WGL_ACCUM_GREEN_BITS_ARB);
-        addAttrib(WGL_ACCUM_BLUE_BITS_ARB);
-        addAttrib(WGL_ACCUM_ALPHA_BITS_ARB);
-        addAttrib(WGL_AUX_BUFFERS_ARB);
-        addAttrib(WGL_STEREO_ARB);
-        addAttrib(WGL_DOUBLE_BUFFER_ARB);
-=======
         ADD_ATTRIB(WGL_SUPPORT_OPENGL_ARB);
         ADD_ATTRIB(WGL_DRAW_TO_WINDOW_ARB);
         ADD_ATTRIB(WGL_PIXEL_TYPE_ARB);
@@ -127,7 +103,6 @@ static int choosePixelFormatWGL(_GLFWwindow* window,
         ADD_ATTRIB(WGL_AUX_BUFFERS_ARB);
         ADD_ATTRIB(WGL_STEREO_ARB);
         ADD_ATTRIB(WGL_DOUBLE_BUFFER_ARB);
->>>>>>> source/master
 
         if (_glfw.wgl.ARB_multisample)
             ADD_ATTRIB(WGL_SAMPLES_ARB);
@@ -179,18 +154,8 @@ static int choosePixelFormatWGL(_GLFWwindow* window,
             if (FIND_ATTRIB_VALUE(WGL_ACCELERATION_ARB) == WGL_NO_ACCELERATION_ARB)
                 continue;
 
-<<<<<<< HEAD
-            if (findAttribValue(WGL_DOUBLE_BUFFER_ARB) != fbconfig->doublebuffer)
-                continue;
-
-            u->redBits = findAttribValue(WGL_RED_BITS_ARB);
-            u->greenBits = findAttribValue(WGL_GREEN_BITS_ARB);
-            u->blueBits = findAttribValue(WGL_BLUE_BITS_ARB);
-            u->alphaBits = findAttribValue(WGL_ALPHA_BITS_ARB);
-=======
             if (FIND_ATTRIB_VALUE(WGL_DOUBLE_BUFFER_ARB) != fbconfig->doublebuffer)
                 continue;
->>>>>>> source/master
 
             u->redBits = FIND_ATTRIB_VALUE(WGL_RED_BITS_ARB);
             u->greenBits = FIND_ATTRIB_VALUE(WGL_GREEN_BITS_ARB);
@@ -797,8 +762,6 @@ GLFWAPI HGLRC glfwGetWGLContext(GLFWwindow* handle)
     _GLFWwindow* window = (_GLFWwindow*) handle;
     _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
 
-<<<<<<< HEAD
-=======
     if (_glfw.platform.platformID != GLFW_PLATFORM_WIN32)
     {
         _glfwInputError(GLFW_PLATFORM_UNAVAILABLE,
@@ -806,7 +769,6 @@ GLFWAPI HGLRC glfwGetWGLContext(GLFWwindow* handle)
         return NULL;
     }
 
->>>>>>> source/master
     if (window->context.source != GLFW_NATIVE_CONTEXT_API)
     {
         _glfwInputError(GLFW_NO_WINDOW_CONTEXT, NULL);

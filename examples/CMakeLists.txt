@@ -16,20 +16,6 @@ if (WIN32)
     set(ICON glfw.rc)
 elseif (APPLE)
     set(ICON glfw.icns)
-<<<<<<< HEAD
-endif()
-
-if (${CMAKE_VERSION} VERSION_EQUAL "3.1.0" OR
-    ${CMAKE_VERSION} VERSION_GREATER "3.1.0")
-    set(CMAKE_C_STANDARD 99)
-else()
-    # Remove this fallback when removing support for CMake version less than 3.1
-    add_compile_options("$<$<C_COMPILER_ID:AppleClang>:-std=c99>"
-                        "$<$<C_COMPILER_ID:Clang>:-std=c99>"
-                        "$<$<C_COMPILER_ID:GNU>:-std=c99>")
-
-=======
->>>>>>> source/master
 endif()
 
 set(GLAD_GL "${GLFW_SOURCE_DIR}/deps/glad/gl.h")
@@ -56,20 +42,12 @@ if (RT_LIBRARY)
     target_link_libraries(particles "${RT_LIBRARY}")
 endif()
 
-<<<<<<< HEAD
-set(GUI_ONLY_BINARIES boing gears heightmap particles sharing simple splitview
-    wave)
-set(CONSOLE_BINARIES offscreen)
-
-set_target_properties(${GUI_ONLY_BINARIES} ${CONSOLE_BINARIES} PROPERTIES
-=======
 set(GUI_ONLY_BINARIES boing gears heightmap particles sharing splitview
     triangle-opengl triangle-opengles wave windows)
 set(CONSOLE_BINARIES offscreen)
 
 set_target_properties(${GUI_ONLY_BINARIES} ${CONSOLE_BINARIES} PROPERTIES
                       C_STANDARD 99
->>>>>>> source/master
                       FOLDER "GLFW3/Examples")
 
 if (GLFW_USE_OSMESA)

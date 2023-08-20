@@ -557,11 +557,7 @@ GLFWAPI void glfwSetWindowIcon(GLFWwindow* handle,
         }
     }
 
-<<<<<<< HEAD
-    _glfwPlatformSetWindowIcon(window, count, images);
-=======
     _glfw.platform.setWindowIcon(window, count, images);
->>>>>>> source/master
 }
 
 GLFWAPI void glfwGetWindowPos(GLFWwindow* handle, int* xpos, int* ypos)

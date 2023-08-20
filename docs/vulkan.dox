@@ -37,11 +37,6 @@ By default, GLFW will load the Vulkan loader dynamically at runtime via its stan
 `vulkan-1.dll` on Windows, `libvulkan.so.1` on Linux and other Unix-like systems and
 `libvulkan.1.dylib` on macOS.
 
-<<<<<<< HEAD
-@macos To make your application be redistributable you will need to set up the
-application bundle according to the LunarG SDK documentation.  This is explained
-in more detail in the
-=======
 @macos GLFW will also look up and search the `Frameworks` subdirectory of your
 application bundle.
 
@@ -56,7 +51,6 @@ glfwInitVulkanLoader(vkGetInstanceProcAddr);
 
 @macos To make your application be redistributable you will need to set up the application
 bundle according to the LunarG SDK documentation.  This is explained in more detail in the
->>>>>>> source/master
 [SDK documentation for macOS](https://vulkan.lunarg.com/doc/sdk/latest/mac/getting_started.html).
 
 

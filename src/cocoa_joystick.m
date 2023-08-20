@@ -100,15 +100,8 @@ static void closeJoystick(_GLFWjoystick* js)
 {
     _glfwInputJoystick(js, GLFW_DISCONNECTED);
 
-<<<<<<< HEAD
-    _glfwInputJoystick(js, GLFW_DISCONNECTED);
-
-    for (i = 0;  i < CFArrayGetCount(js->ns.axes);  i++)
-        free((void*) CFArrayGetValueAtIndex(js->ns.axes, i));
-=======
     for (int i = 0;  i < CFArrayGetCount(js->ns.axes);  i++)
         _glfw_free((void*) CFArrayGetValueAtIndex(js->ns.axes, i));
->>>>>>> source/master
     CFRelease(js->ns.axes);
 
     for (int i = 0;  i < CFArrayGetCount(js->ns.buttons);  i++)
@@ -394,22 +387,11 @@ void _glfwTerminateJoysticksCocoa(void)
             closeJoystick(&_glfw.joysticks[jid]);
     }
 
-<<<<<<< HEAD
-    for (jid = 0;  jid <= GLFW_JOYSTICK_LAST;  jid++)
-    {
-        if (_glfw.joysticks[jid].connected)
-            closeJoystick(&_glfw.joysticks[jid]);
-    }
-
-    CFRelease(_glfw.ns.hidManager);
-    _glfw.ns.hidManager = NULL;
-=======
     if (_glfw.ns.hidManager)
     {
         CFRelease(_glfw.ns.hidManager);
         _glfw.ns.hidManager = NULL;
     }
->>>>>>> source/master
 }
 
 

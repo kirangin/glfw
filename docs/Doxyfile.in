@@ -286,18 +286,11 @@ ALIASES                = "thread_safety=@par Thread safety^^" \
                          "macos=__macOS:__" \
                          "linux=__Linux:__"
 
-<<<<<<< HEAD
-# Set the OPTIMIZE_OUTPUT_FOR_C tag to YES if your project consists of C
-# sources only. Doxygen will then generate output that is more tailored for C.
-# For instance, some of the names that are used will be different. The list
-# of all members will be omitted, etc.
-=======
 # Set the OPTIMIZE_OUTPUT_FOR_C tag to YES if your project consists of C sources
 # only. Doxygen will then generate output that is more tailored for C. For
 # instance, some of the names that are used will be different. The list of all
 # members will be omitted, etc.
 # The default value is: NO.
->>>>>>> source/master
 
 OPTIMIZE_OUTPUT_FOR_C  = YES
 
@@ -1193,18 +1186,11 @@ VERBATIM_HEADERS       = YES
 
 ALPHABETICAL_INDEX     = YES
 
-<<<<<<< HEAD
-# In case all classes in a project start with a common prefix, all
-# classes will be put under the same header in the alphabetical index.
-# The IGNORE_PREFIX tag can be used to specify one or more prefixes that
-# should be ignored while generating the index headers.
-=======
 # In case all classes in a project start with a common prefix, all classes will
 # be put under the same header in the alphabetical index. The IGNORE_PREFIX tag
 # can be used to specify a prefix (or a list of prefixes) that should be ignored
 # while generating the index headers.
 # This tag requires that the tag ALPHABETICAL_INDEX is set to YES.
->>>>>>> source/master
 
 IGNORE_PREFIX          = glfw GLFW_
 
@@ -1677,14 +1663,6 @@ HTML_FORMULA_FORMAT    = png
 
 FORMULA_FONTSIZE       = 10
 
-<<<<<<< HEAD
-# Enable the USE_MATHJAX option to render LaTeX formulas using MathJax
-# (see http://www.mathjax.org) which uses client side Javascript for the
-# rendering instead of using prerendered bitmaps. Use this if you do not
-# have LaTeX installed or if you want to formulas look prettier in the HTML
-# output. When enabled you may also need to install MathJax separately and
-# configure the path to it using the MATHJAX_RELPATH option.
-=======
 # The FORMULA_MACROFILE can contain LaTeX \newcommand and \renewcommand commands
 # to create new LaTeX commands to be used in formulas as building blocks. See
 # the section "Including formulas" for details.
@@ -1699,7 +1677,6 @@ FORMULA_MACROFILE      =
 # to it using the MATHJAX_RELPATH option.
 # The default value is: NO.
 # This tag requires that the tag GENERATE_HTML is set to YES.
->>>>>>> source/master
 
 USE_MATHJAX            = NO
 
@@ -2368,8 +2345,6 @@ ALLEXTERNALS           = NO
 
 EXTERNAL_GROUPS        = YES
 
-<<<<<<< HEAD
-=======
 # If the EXTERNAL_PAGES tag is set to YES, all external pages will be listed in
 # the related pages index. If set to NO, only the current project's pages will
 # be listed.
@@ -2377,16 +2352,10 @@ EXTERNAL_GROUPS        = YES
 
 EXTERNAL_PAGES         = YES
 
->>>>>>> source/master
 #---------------------------------------------------------------------------
 # Configuration options related to the dot tool
 #---------------------------------------------------------------------------
 
-<<<<<<< HEAD
-# If set to YES, the inheritance and collaboration graphs will hide
-# inheritance and usage relations if the target is undocumented
-# or is not a class.
-=======
 # You can include diagrams made with dia in doxygen documentation. Doxygen will
 # then run dia to produce the diagram and insert it in the documentation. The
 # DIA_PATH tag allows you to specify the directory where the dia binary resides.
@@ -2397,7 +2366,6 @@ DIA_PATH               =
 # If set to YES the inheritance and collaboration graphs will hide inheritance
 # and usage relations if the target is undocumented or is not a class.
 # The default value is: YES.
->>>>>>> source/master
 
 HIDE_UNDOC_RELATIONS   = YES
 
@@ -2420,11 +2388,6 @@ HAVE_DOT               = NO
 
 DOT_NUM_THREADS        = 0
 
-<<<<<<< HEAD
-# By default doxygen will tell dot to use the Helvetica font.
-# If you specify a different font using DOT_FONTNAME you can use DOT_FONTPATH to
-# set the path where dot can find it.
-=======
 # DOT_COMMON_ATTR is common attributes for nodes, edges and labels of
 # subgraphs. When you want a differently looking font in the dot files that
 # doxygen generates you can specify fontname, fontcolor and fontsize attributes.
@@ -2458,7 +2421,6 @@ DOT_NODE_ATTR          = "shape=box,height=0.2,width=0.4"
 # You can set the path where dot can find font specified with fontname in
 # DOT_COMMON_ATTR and others dot attributes.
 # This tag requires that the tag HAVE_DOT is set to YES.
->>>>>>> source/master
 
 DOT_FONTPATH           =
 
@@ -2498,14 +2460,6 @@ GROUP_GRAPHS           = YES
 
 UML_LOOK               = NO
 
-<<<<<<< HEAD
-# If the UML_LOOK tag is enabled, the fields and methods are shown inside
-# the class node. If there are many fields or methods and many nodes the
-# graph may become too big to be useful. The UML_LIMIT_NUM_FIELDS
-# threshold limits the number of items for each type to make the size more
-# manageable. Set this to 0 for no limit. Note that the threshold may be
-# exceeded by 50% before the limit is enforced.
-=======
 # If the UML_LOOK tag is enabled, the fields and methods are shown inside the
 # class node. If there are many fields or methods and many nodes the graph may
 # become too big to be useful. The UML_LIMIT_NUM_FIELDS threshold limits the
@@ -2516,7 +2470,6 @@ UML_LOOK               = NO
 # 10.
 # Minimum value: 0, maximum value: 100, default value: 10.
 # This tag requires that the tag UML_LOOK is set to YES.
->>>>>>> source/master
 
 UML_LIMIT_NUM_FIELDS   = 10
 
@@ -2709,11 +2662,7 @@ DOT_GRAPH_MAX_NODES    = 50
 
 MAX_DOT_GRAPH_DEPTH    = 0
 
-<<<<<<< HEAD
-# Set the DOT_MULTI_TARGETS tag to YES allow dot to generate multiple output
-=======
 # Set the DOT_MULTI_TARGETS tag to YES to allow dot to generate multiple output
->>>>>>> source/master
 # files in one run (i.e. multiple -o and -T options on the command line). This
 # makes dot run faster, but since only newer versions of dot (>1.8.10) support
 # this, this feature is disabled by default.

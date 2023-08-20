@@ -165,12 +165,6 @@ typedef enum
 // Replacement for versionhelpers.h macros, as we cannot rely on the
 // application having a correct embedded manifest
 //
-<<<<<<< HEAD
-#define IsWindowsXPOrGreater()                                 \
-    _glfwIsWindowsVersionOrGreaterWin32(HIBYTE(_WIN32_WINNT_WINXP),   \
-                                        LOBYTE(_WIN32_WINNT_WINXP), 0)
-=======
->>>>>>> source/master
 #define IsWindowsVistaOrGreater()                                     \
     _glfwIsWindowsVersionOrGreaterWin32(HIBYTE(_WIN32_WINNT_VISTA),   \
                                         LOBYTE(_WIN32_WINNT_VISTA), 0)
@@ -225,8 +219,6 @@ typedef enum
  #define DIDFT_OPTIONAL 0x80000000
 #endif
 
-<<<<<<< HEAD
-=======
 #define WGL_NUMBER_PIXEL_FORMATS_ARB 0x2000
 #define WGL_SUPPORT_OPENGL_ARB 0x2010
 #define WGL_DRAW_TO_WINDOW_ARB 0x2001
@@ -278,7 +270,6 @@ typedef enum
 #define ERROR_INVALID_PROFILE_ARB 0x2096
 #define ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB 0x2054
 
->>>>>>> source/master
 // xinput.dll function pointer typedefs
 typedef DWORD (WINAPI * PFN_XInputGetCapabilities)(DWORD,DWORD,XINPUT_CAPABILITIES*);
 typedef DWORD (WINAPI * PFN_XInputGetState)(DWORD,XINPUT_STATE*);
@@ -442,11 +433,7 @@ typedef struct _GLFWwindowWin32
 
     // The last received cursor position, regardless of source
     int                 lastCursorPosX, lastCursorPosY;
-<<<<<<< HEAD
-    // The last recevied high surrogate when decoding pairs of UTF-16 messages
-=======
     // The last received high surrogate when decoding pairs of UTF-16 messages
->>>>>>> source/master
     WCHAR               highSurrogate;
 } _GLFWwindowWin32;
 
@@ -538,39 +525,10 @@ typedef struct _GLFWcursorWin32
     HCURSOR             handle;
 } _GLFWcursorWin32;
 
-<<<<<<< HEAD
-// Win32-specific global timer data
-//
-typedef struct _GLFWtimerWin32
-{
-    uint64_t            frequency;
-} _GLFWtimerWin32;
-
-// Win32-specific thread local storage data
-//
-typedef struct _GLFWtlsWin32
-{
-    GLFWbool            allocated;
-    DWORD               index;
-} _GLFWtlsWin32;
-
-// Win32-specific mutex data
-//
-typedef struct _GLFWmutexWin32
-{
-    GLFWbool            allocated;
-    CRITICAL_SECTION    section;
-} _GLFWmutexWin32;
-
-
-GLFWbool _glfwRegisterWindowClassWin32(void);
-void _glfwUnregisterWindowClassWin32(void);
-=======
 
 GLFWbool _glfwConnectWin32(int platformID, _GLFWplatform* platform);
 int _glfwInitWin32(void);
 void _glfwTerminateWin32(void);
->>>>>>> source/master
 
 WCHAR* _glfwCreateWideStringFromUTF8Win32(const char* source);
 char* _glfwCreateUTF8FromWideStringWin32(const WCHAR* source);

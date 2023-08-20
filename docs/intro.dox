@@ -104,8 +104,6 @@ backend.
 __GLFW_JOYSTICK_HAT_BUTTONS__ specifies whether to also expose joystick hats as
 buttons, for compatibility with earlier versions of GLFW that did not have @ref
 glfwGetJoystickHats.  Possible values are `GLFW_TRUE` and `GLFW_FALSE`.
-<<<<<<< HEAD
-=======
 
 @anchor GLFW_ANGLE_PLATFORM_TYPE_hint
 __GLFW_ANGLE_PLATFORM_TYPE__ specifies the platform type (rendering backend) to
@@ -120,7 +118,6 @@ one of `GLFW_ANGLE_PLATFORM_TYPE_NONE`, `GLFW_ANGLE_PLATFORM_TYPE_OPENGL`,
 The ANGLE platform type is specified via the `EGL_ANGLE_platform_angle`
 extension.  This extension is not used if this hint is
 `GLFW_ANGLE_PLATFORM_TYPE_NONE`, which is the default value.
->>>>>>> source/master
 
 
 @subsubsection init_hints_osx macOS specific init hints
@@ -615,13 +612,6 @@ The format of the string is as follows:
  - The names of the always supported context creation APIs EGL and OSMesa
  - Any additional compile-time options, APIs and (on Windows) what compiler was used
 
-<<<<<<< HEAD
-For example, when compiling GLFW 3.3.9 with MinGW for Windows, may result in
-a version string like this:
-
-@code
-3.3.9 Win32 WGL EGL OSMesa MinGW
-=======
 For example, compiling GLFW 3.4 with MinGW as a DLL for Windows, may result in a version string
 like this:
 
@@ -634,7 +624,6 @@ result in a version string like this:
 
 @code
 3.4.0 Wayland X11 GLX Null EGL OSMesa monotonic
->>>>>>> source/master
 @endcode
 
 */

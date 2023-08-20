@@ -777,8 +777,6 @@ typedef struct _GLFWlibraryX11
         int          major;
         int          minor;
         unsigned int group;
-<<<<<<< HEAD
-=======
         PFN_XkbFreeKeyboard FreeKeyboard;
         PFN_XkbFreeNames FreeNames;
         PFN_XkbGetMap GetMap;
@@ -788,7 +786,6 @@ typedef struct _GLFWlibraryX11
         PFN_XkbQueryExtension QueryExtension;
         PFN_XkbSelectEventDetails SelectEventDetails;
         PFN_XkbSetDetectableAutoRepeat SetDetectableAutoRepeat;
->>>>>>> source/master
     } xkb;
 
     struct {
@@ -864,8 +861,6 @@ typedef struct _GLFWlibraryX11
         PFN_XRenderQueryVersion QueryVersion;
         PFN_XRenderFindVisualFormat FindVisualFormat;
     } xrender;
-<<<<<<< HEAD
-=======
 
     struct {
         GLFWbool    available;
@@ -879,7 +874,6 @@ typedef struct _GLFWlibraryX11
         PFN_XShapeQueryVersion QueryVersion;
         PFN_XShapeCombineMask ShapeCombineMask;
     } xshape;
->>>>>>> source/master
 } _GLFWlibraryX11;
 
 // X11-specific per-monitor data

@@ -214,11 +214,7 @@ static int translateKeySyms(const KeySym* keysyms, int width)
 //
 static void createKeyTables(void)
 {
-<<<<<<< HEAD
-    int scancode, scancodeMin, scancodeMax;
-=======
     int scancodeMin, scancodeMax;
->>>>>>> source/master
 
     memset(_glfw.x11.keycodes, -1, sizeof(_glfw.x11.keycodes));
     memset(_glfw.x11.scancodes, -1, sizeof(_glfw.x11.scancodes));
@@ -364,11 +360,7 @@ static void createKeyTables(void)
         };
 
         // Find the X11 key code -> GLFW key code mapping
-<<<<<<< HEAD
-        for (scancode = scancodeMin;  scancode <= scancodeMax;  scancode++)
-=======
         for (int scancode = scancodeMin;  scancode <= scancodeMax;  scancode++)
->>>>>>> source/master
         {
             int key = GLFW_KEY_UNKNOWN;
 
@@ -427,11 +419,7 @@ static void createKeyTables(void)
                                           scancodeMax - scancodeMin + 1,
                                           &width);
 
-<<<<<<< HEAD
-    for (scancode = scancodeMin;  scancode <= scancodeMax;  scancode++)
-=======
     for (int scancode = scancodeMin;  scancode <= scancodeMax;  scancode++)
->>>>>>> source/master
     {
         // Translate the un-translated key codes using traditional X11 KeySym
         // lookups
@@ -472,9 +460,6 @@ static GLFWbool hasUsableInputMethodStyle(void)
     return found;
 }
 
-<<<<<<< HEAD
-// Check whether the specified atom is supported
-=======
 static void inputMethodDestroyCallback(XIM im, XPointer clientData, XPointer callData)
 {
     _glfw.x11.im = NULL;
@@ -510,7 +495,6 @@ static void inputMethodInstantiateCallback(Display* display,
 }
 
 // Return the atom ID only if it is listed in the specified array
->>>>>>> source/master
 //
 static Atom getAtomIfSupported(Atom* supportedAtoms,
                                unsigned long atomCount,
@@ -623,15 +607,9 @@ static void detectEWMH(void)
 static GLFWbool initExtensions(void)
 {
 #if defined(__OpenBSD__) || defined(__NetBSD__)
-<<<<<<< HEAD
-    _glfw.x11.vidmode.handle = _glfw_dlopen("libXxf86vm.so");
-#else
-    _glfw.x11.vidmode.handle = _glfw_dlopen("libXxf86vm.so.1");
-=======
     _glfw.x11.vidmode.handle = _glfwPlatformLoadModule("libXxf86vm.so");
 #else
     _glfw.x11.vidmode.handle = _glfwPlatformLoadModule("libXxf86vm.so.1");
->>>>>>> source/master
 #endif
     if (_glfw.x11.vidmode.handle)
     {
@@ -651,15 +629,9 @@ static GLFWbool initExtensions(void)
     }
 
 #if defined(__CYGWIN__)
-<<<<<<< HEAD
-    _glfw.x11.xi.handle = _glfw_dlopen("libXi-6.so");
-#elif defined(__OpenBSD__) || defined(__NetBSD__)
-    _glfw.x11.xi.handle = _glfw_dlopen("libXi.so");
-=======
     _glfw.x11.xi.handle = _glfwPlatformLoadModule("libXi-6.so");
 #elif defined(__OpenBSD__) || defined(__NetBSD__)
     _glfw.x11.xi.handle = _glfwPlatformLoadModule("libXi.so");
->>>>>>> source/master
 #else
     _glfw.x11.xi.handle = _glfwPlatformLoadModule("libXi.so.6");
 #endif
@@ -689,15 +661,9 @@ static GLFWbool initExtensions(void)
     }
 
 #if defined(__CYGWIN__)
-<<<<<<< HEAD
-    _glfw.x11.randr.handle = _glfw_dlopen("libXrandr-2.so");
-#elif defined(__OpenBSD__) || defined(__NetBSD__)
-    _glfw.x11.randr.handle = _glfw_dlopen("libXrandr.so");
-=======
     _glfw.x11.randr.handle = _glfwPlatformLoadModule("libXrandr-2.so");
 #elif defined(__OpenBSD__) || defined(__NetBSD__)
     _glfw.x11.randr.handle = _glfwPlatformLoadModule("libXrandr.so");
->>>>>>> source/master
 #else
     _glfw.x11.randr.handle = _glfwPlatformLoadModule("libXrandr.so.2");
 #endif
@@ -789,15 +755,9 @@ static GLFWbool initExtensions(void)
     }
 
 #if defined(__CYGWIN__)
-<<<<<<< HEAD
-    _glfw.x11.xcursor.handle = _glfw_dlopen("libXcursor-1.so");
-#elif defined(__OpenBSD__) || defined(__NetBSD__)
-    _glfw.x11.xcursor.handle = _glfw_dlopen("libXcursor.so");
-=======
     _glfw.x11.xcursor.handle = _glfwPlatformLoadModule("libXcursor-1.so");
 #elif defined(__OpenBSD__) || defined(__NetBSD__)
     _glfw.x11.xcursor.handle = _glfwPlatformLoadModule("libXcursor.so");
->>>>>>> source/master
 #else
     _glfw.x11.xcursor.handle = _glfwPlatformLoadModule("libXcursor.so.1");
 #endif
@@ -818,15 +778,9 @@ static GLFWbool initExtensions(void)
     }
 
 #if defined(__CYGWIN__)
-<<<<<<< HEAD
-    _glfw.x11.xinerama.handle = _glfw_dlopen("libXinerama-1.so");
-#elif defined(__OpenBSD__) || defined(__NetBSD__)
-    _glfw.x11.xinerama.handle = _glfw_dlopen("libXinerama.so");
-=======
     _glfw.x11.xinerama.handle = _glfwPlatformLoadModule("libXinerama-1.so");
 #elif defined(__OpenBSD__) || defined(__NetBSD__)
     _glfw.x11.xinerama.handle = _glfwPlatformLoadModule("libXinerama.so");
->>>>>>> source/master
 #else
     _glfw.x11.xinerama.handle = _glfwPlatformLoadModule("libXinerama.so.1");
 #endif
@@ -879,15 +833,9 @@ static GLFWbool initExtensions(void)
     if (_glfw.hints.init.x11.xcbVulkanSurface)
     {
 #if defined(__CYGWIN__)
-<<<<<<< HEAD
-    _glfw.x11.x11xcb.handle = _glfw_dlopen("libX11-xcb-1.so");
-#elif defined(__OpenBSD__) || defined(__NetBSD__)
-    _glfw.x11.x11xcb.handle = _glfw_dlopen("libX11-xcb.so");
-=======
         _glfw.x11.x11xcb.handle = _glfwPlatformLoadModule("libX11-xcb-1.so");
 #elif defined(__OpenBSD__) || defined(__NetBSD__)
         _glfw.x11.x11xcb.handle = _glfwPlatformLoadModule("libX11-xcb.so");
->>>>>>> source/master
 #else
         _glfw.x11.x11xcb.handle = _glfwPlatformLoadModule("libX11-xcb.so.1");
 #endif
@@ -900,15 +848,9 @@ static GLFWbool initExtensions(void)
     }
 
 #if defined(__CYGWIN__)
-<<<<<<< HEAD
-    _glfw.x11.xrender.handle = _glfw_dlopen("libXrender-1.so");
-#elif defined(__OpenBSD__) || defined(__NetBSD__)
-    _glfw.x11.xrender.handle = _glfw_dlopen("libXrender.so");
-=======
     _glfw.x11.xrender.handle = _glfwPlatformLoadModule("libXrender-1.so");
 #elif defined(__OpenBSD__) || defined(__NetBSD__)
     _glfw.x11.xrender.handle = _glfwPlatformLoadModule("libXrender.so");
->>>>>>> source/master
 #else
     _glfw.x11.xrender.handle = _glfwPlatformLoadModule("libXrender.so.1");
 #endif
@@ -1224,8 +1166,6 @@ Cursor _glfwCreateNativeCursorX11(const GLFWimage* image, int xhot, int yhot)
 
 GLFWbool _glfwConnectX11(int platformID, _GLFWplatform* platform)
 {
-<<<<<<< HEAD
-=======
     const _GLFWplatform x11 =
     {
         GLFW_PLATFORM_X11,
@@ -1310,15 +1250,12 @@ GLFWbool _glfwConnectX11(int platformID, _GLFWplatform* platform)
         _glfwCreateWindowSurfaceX11,
     };
 
->>>>>>> source/master
     // HACK: If the application has left the locale as "C" then both wide
     //       character text input and explicit UTF-8 input via XIM will break
     //       This sets the CTYPE part of the current locale from the environment
     //       in the hope that it is set to something more sane than "C"
     if (strcmp(setlocale(LC_CTYPE, NULL), "C") == 0)
         setlocale(LC_CTYPE, "");
-<<<<<<< HEAD
-=======
 
 #if defined(__CYGWIN__)
     void* module = _glfwPlatformLoadModule("libX11-6.so");
@@ -1349,7 +1286,6 @@ GLFWbool _glfwConnectX11(int platformID, _GLFWplatform* platform)
         _glfwPlatformFreeModule(module);
         return GLFW_FALSE;
     }
->>>>>>> source/master
 
     XInitThreads();
     XrmInitialize();
@@ -1705,17 +1641,11 @@ void _glfwTerminateX11(void)
     _glfwTerminateEGL();
     _glfwTerminateGLX();
 
-<<<<<<< HEAD
-#if defined(__linux__)
-    _glfwTerminateJoysticksLinux();
-#endif
-=======
     if (_glfw.x11.xlib.handle)
     {
         _glfwPlatformFreeModule(_glfw.x11.xlib.handle);
         _glfw.x11.xlib.handle = NULL;
     }
->>>>>>> source/master
 
     if (_glfw.x11.emptyEventPipe[0] || _glfw.x11.emptyEventPipe[1])
     {

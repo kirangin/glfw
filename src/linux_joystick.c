@@ -382,54 +382,7 @@ void _glfwTerminateJoysticksLinux(void)
     }
 }
 
-<<<<<<< HEAD
-void _glfwDetectJoystickConnectionLinux(void)
-{
-    if (_glfw.linjs.inotify <= 0)
-        return;
-
-    ssize_t offset = 0;
-    char buffer[16384];
-    const ssize_t size = read(_glfw.linjs.inotify, buffer, sizeof(buffer));
-
-    while (size > offset)
-    {
-        regmatch_t match;
-        const struct inotify_event* e = (struct inotify_event*) (buffer + offset);
-
-        offset += sizeof(struct inotify_event) + e->len;
-
-        if (regexec(&_glfw.linjs.regex, e->name, 1, &match, 0) != 0)
-            continue;
-
-        char path[PATH_MAX];
-        snprintf(path, sizeof(path), "/dev/input/%s", e->name);
-
-        if (e->mask & (IN_CREATE | IN_ATTRIB))
-            openJoystickDevice(path);
-        else if (e->mask & IN_DELETE)
-        {
-            for (int jid = 0;  jid <= GLFW_JOYSTICK_LAST;  jid++)
-            {
-                if (strcmp(_glfw.joysticks[jid].linjs.path, path) == 0)
-                {
-                    closeJoystick(_glfw.joysticks + jid);
-                    break;
-                }
-            }
-        }
-    }
-}
-
-
-//////////////////////////////////////////////////////////////////////////
-//////                       GLFW platform API                      //////
-//////////////////////////////////////////////////////////////////////////
-
-int _glfwPlatformPollJoystick(_GLFWjoystick* js, int mode)
-=======
 GLFWbool _glfwPollJoystickLinux(_GLFWjoystick* js, int mode)
->>>>>>> source/master
 {
     // Read all queued events (non-blocking)
     for (;;)

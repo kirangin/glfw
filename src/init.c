@@ -204,13 +204,8 @@ char** _glfwParseUriList(char* text, int* count)
 
         (*count)++;
 
-<<<<<<< HEAD
-        path = calloc(strlen(line) + 1, 1);
-        paths = realloc(paths, *count * sizeof(char*));
-=======
         path = _glfw_calloc(strlen(line) + 1, 1);
         paths = _glfw_realloc(paths, *count * sizeof(char*));
->>>>>>> source/master
         paths[*count - 1] = path;
 
         while (*line)
@@ -448,11 +443,7 @@ GLFWAPI int glfwInit(void)
 
     _glfwInitGamepadMappings();
 
-<<<<<<< HEAD
-    _glfw.initialized = GLFW_TRUE;
-=======
     _glfwPlatformInitTimer();
->>>>>>> source/master
     _glfw.timer.offset = _glfwPlatformGetTimerValue();
 
     _glfw.initialized = GLFW_TRUE;

@@ -38,10 +38,6 @@
 
 #include "wayland-client-protocol.h"
 
-<<<<<<< HEAD
-=======
-
->>>>>>> source/master
 static void outputHandleGeometry(void* userData,
                                  struct wl_output* output,
                                  int32_t x,
@@ -254,11 +250,7 @@ void _glfwGetVideoModeWayland(_GLFWmonitor* monitor, GLFWvidmode* mode)
 
 GLFWbool _glfwGetGammaRampWayland(_GLFWmonitor* monitor, GLFWgammaramp* ramp)
 {
-<<<<<<< HEAD
-    _glfwInputError(GLFW_PLATFORM_ERROR,
-=======
     _glfwInputError(GLFW_FEATURE_UNAVAILABLE,
->>>>>>> source/master
                     "Wayland: Gamma ramp access is not available");
     return GLFW_FALSE;
 }

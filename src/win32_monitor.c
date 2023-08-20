@@ -34,10 +34,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-<<<<<<< HEAD
-#include <malloc.h>
-=======
->>>>>>> source/master
 #include <wchar.h>
 
 

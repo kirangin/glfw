@@ -440,17 +440,7 @@ static GLFWbool initializeTIS(void)
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-<<<<<<< HEAD
-    _glfw.ns.finishedLaunching = GLFW_TRUE;
-    _glfwPlatformPostEmptyEvent();
-
-    // In case we are unbundled, make us a proper UI application
-    if (_glfw.hints.init.ns.menubar)
-        [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
-
-=======
     _glfwPostEmptyEventCocoa();
->>>>>>> source/master
     [NSApp stop:nil];
 }
 
@@ -467,11 +457,7 @@ static GLFWbool initializeTIS(void)
 //////                       GLFW internal API                      //////
 //////////////////////////////////////////////////////////////////////////
 
-<<<<<<< HEAD
-void* _glfwLoadLocalVulkanLoaderNS(void)
-=======
 void* _glfwLoadLocalVulkanLoaderCocoa(void)
->>>>>>> source/master
 {
     CFBundleRef bundle = CFBundleGetMainBundle();
     if (!bundle)
@@ -493,11 +479,7 @@ void* _glfwLoadLocalVulkanLoaderCocoa(void)
     void* handle = NULL;
 
     if (CFURLGetFileSystemRepresentation(loaderUrl, true, (UInt8*) path, sizeof(path) - 1))
-<<<<<<< HEAD
-        handle = _glfw_dlopen(path);
-=======
         handle = _glfwPlatformLoadModule(path);
->>>>>>> source/master
 
     CFRelease(loaderUrl);
     CFRelease(frameworksUrl);
@@ -707,10 +689,6 @@ void _glfwTerminateCocoa(void)
     _glfwTerminateNSGL();
     _glfwTerminateEGL();
     _glfwTerminateOSMesa();
-<<<<<<< HEAD
-    _glfwTerminateJoysticksNS();
-=======
->>>>>>> source/master
 
     } // autoreleasepool
 }

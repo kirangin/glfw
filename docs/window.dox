@@ -374,21 +374,6 @@ context, which is the default for these hints.
 
 Do not confuse these hints with @ref GLFW_VERSION_MAJOR and @ref
 GLFW_VERSION_MINOR, which provide the API version of the GLFW header.
-<<<<<<< HEAD
-
-@note __OpenGL:__ These hints are not hard constraints, but creation will fail
-if the OpenGL version of the created context is less than the one requested.  It
-is therefore perfectly safe to use the default of version 1.0 for legacy code
-and you will still get backwards-compatible contexts of version 3.0 and above
-when available.
-
-@note __OpenGL ES:__ These hints are not hard constraints, but creation will
-fail if the OpenGL ES version of the created context is less than the one
-requested.  Additionally, OpenGL ES 1.x cannot be returned if 2.0 or later was
-requested, and vice versa.  This is because OpenGL ES 3.x is backward compatible
-with 2.0, but OpenGL ES 2.0 is not backward compatible with 1.x.
-=======
->>>>>>> source/master
 
 @note __OpenGL:__ These hints are not hard constraints, but creation will fail
 if the OpenGL version of the created context is less than the one requested.  It
@@ -418,25 +403,16 @@ Forward-compatibility is described in detail in the
 
 @anchor GLFW_CONTEXT_DEBUG_hint
 @anchor GLFW_OPENGL_DEBUG_CONTEXT_hint
-<<<<<<< HEAD
-__GLFW_OPENGL_DEBUG_CONTEXT__ specifies whether the context should be created
-in debug mode, which may provide additional error and diagnostic reporting
-functionality.  Possible values are `GLFW_TRUE` and `GLFW_FALSE`.
-=======
 __GLFW_CONTEXT_DEBUG__ specifies whether the context should be created in debug
 mode, which may provide additional error and diagnostic reporting functionality.
 Possible values are `GLFW_TRUE` and `GLFW_FALSE`.
->>>>>>> source/master
 
 Debug contexts for OpenGL and OpenGL ES are described in detail by the
 [GL_KHR_debug](https://www.khronos.org/registry/OpenGL/extensions/KHR/KHR_debug.txt)
 extension.
-<<<<<<< HEAD
-=======
 
 @note `GLFW_CONTEXT_DEBUG` is the new name introduced in GLFW 3.4.  The older
 `GLFW_OPENGL_DEBUG_CONTEXT` name is also available for compatibility.
->>>>>>> source/master
 
 @anchor GLFW_OPENGL_PROFILE_hint
 __GLFW_OPENGL_PROFILE__ specifies which OpenGL profile to create the context
@@ -1396,17 +1372,12 @@ OpenGL forward-compatible one, or `GLFW_FALSE` otherwise.
 
 @anchor GLFW_CONTEXT_DEBUG_attrib
 @anchor GLFW_OPENGL_DEBUG_CONTEXT_attrib
-<<<<<<< HEAD
-__GLFW_OPENGL_DEBUG_CONTEXT__ is `GLFW_TRUE` if the window's context is in debug
-mode, or `GLFW_FALSE` otherwise.
-=======
 __GLFW_CONTEXT_DEBUG__ is `GLFW_TRUE` if the window's context is in debug
 mode, or `GLFW_FALSE` otherwise.
 
 @par
 This is the new name, introduced in GLFW 3.4.  The older
 `GLFW_OPENGL_DEBUG_CONTEXT` name is also available for compatibility.
->>>>>>> source/master
 
 @anchor GLFW_OPENGL_PROFILE_attrib
 __GLFW_OPENGL_PROFILE__ indicates the OpenGL profile used by the context.  This

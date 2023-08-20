@@ -234,11 +234,7 @@ void _glfwSetVideoModeX11(_GLFWmonitor* monitor, const GLFWvidmode* desired)
         RRMode native = None;
 
         const GLFWvidmode* best = _glfwChooseVideoMode(monitor, desired);
-<<<<<<< HEAD
-        _glfwPlatformGetVideoMode(monitor, &current);
-=======
         _glfwGetVideoModeX11(monitor, &current);
->>>>>>> source/master
         if (_glfwCompareVideoModes(&current, best) == 0)
             return;
 
@@ -457,15 +453,9 @@ GLFWvidmode* _glfwGetVideoModesX11(_GLFWmonitor* monitor, int* count)
             XRRGetScreenResourcesCurrent(_glfw.x11.display, _glfw.x11.root);
         XRRCrtcInfo* ci = XRRGetCrtcInfo(_glfw.x11.display, sr, monitor->x11.crtc);
         XRROutputInfo* oi = XRRGetOutputInfo(_glfw.x11.display, sr, monitor->x11.output);
-<<<<<<< HEAD
-
-        result = calloc(oi->nmode, sizeof(GLFWvidmode));
-
-=======
 
         result = _glfw_calloc(oi->nmode, sizeof(GLFWvidmode));
 
->>>>>>> source/master
         for (int i = 0;  i < oi->nmode;  i++)
         {
             const XRRModeInfo* mi = getModeInfo(sr, oi->modes[i]);
