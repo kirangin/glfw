@@ -1,29 +1,6 @@
 
 # NOTE: The order of this list determines the order of items in the Guides
 #       (i.e. Pages) list in the generated documentation
-<<<<<<< HEAD
-set(GLFW_DOXYGEN_SOURCES
-    "include/GLFW/glfw3.h"
-    "include/GLFW/glfw3native.h"
-    "docs/main.dox"
-    "docs/news.dox"
-    "docs/quick.dox"
-    "docs/moving.dox"
-    "docs/compile.dox"
-    "docs/build.dox"
-    "docs/intro.dox"
-    "docs/context.dox"
-    "docs/monitor.dox"
-    "docs/window.dox"
-    "docs/input.dox"
-    "docs/vulkan.dox"
-    "docs/compat.dox"
-    "docs/internal.dox")
-
-# Format the source list into a Doxyfile INPUT value that Doxygen can parse
-foreach(path IN LISTS GLFW_DOXYGEN_SOURCES)
-    set(GLFW_DOXYGEN_INPUT "${GLFW_DOXYGEN_INPUT} \\\n\"${GLFW_SOURCE_DIR}/${path}\"")
-=======
 set(source_files
     main.dox
     news.dox
@@ -52,7 +29,6 @@ foreach(path IN LISTS header_paths)
 endforeach()
 foreach(file IN LISTS source_files)
     string(APPEND GLFW_DOXYGEN_INPUT " \\\n\"${CMAKE_CURRENT_SOURCE_DIR}/${file}\"")
->>>>>>> source/master
 endforeach()
 
 configure_file(Doxyfile.in Doxyfile @ONLY)

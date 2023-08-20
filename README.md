@@ -90,15 +90,8 @@ in the documentation for more information.
 
 ## Dependencies
 
-<<<<<<< HEAD
-GLFW itself depends only on the headers and libraries for your window system.
-
-The (experimental) Wayland backend also depends on the `extra-cmake-modules`
-package, which is used to generate Wayland protocol headers.
-=======
 GLFW itself needs only CMake 3.1 or later and the headers and libraries for your
 OS and window system.
->>>>>>> source/master
 
 The examples and test programs depend on a number of tiny libraries.  These are
 located in the `deps/` directory.
@@ -128,15 +121,6 @@ information on what to include when reporting a bug.
 
 ## Changelog
 
-<<<<<<< HEAD
- - [Wayland] Bugfix: Connecting a mouse after `glfwInit` would segfault (#1450)
- - [Wayland] Disabled alpha channel for opaque windows on systems lacking
-   `EGL_EXT_present_opaque` (#1895)
- - [Wayland] Bugfix: Buffer would overrun when storing received drag offer (#2225)
- - [Linux] Bugfix: Joysticks without buttons were ignored (#2042,#2043)
-   [EGL] Added loading of glvnd `libOpenGL.so.0` where available for OpenGL
- - [GLX] Added loading of glvnd `libGLX.so.0` where available
-=======
  - Added `GLFW_PLATFORM` init hint for runtime platform selection (#1958)
  - Added `GLFW_ANY_PLATFORM`, `GLFW_PLATFORM_WIN32`, `GLFW_PLATFORM_COCOA`,
    `GLFW_PLATFORM_WAYLAND`, `GLFW_PLATFORM_X11` and `GLFW_PLATFORM_NULL` symbols to
@@ -419,7 +403,6 @@ information on what to include when reporting a bug.
  - [EGL] Bugfix: The `GLFW_DOUBLEBUFFER` context attribute was ignored (#1843)
  - [GLX] Added loading of glvnd `libGLX.so.0` where available
  - [GLX] Bugfix: Context creation failed if GLX 1.4 was not exported by GLX library
->>>>>>> source/master
 
 
 ## Contact

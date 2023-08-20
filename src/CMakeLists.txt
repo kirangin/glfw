@@ -1,93 +1,4 @@
 
-<<<<<<< HEAD
-set(common_HEADERS internal.h mappings.h
-                   "${GLFW_BINARY_DIR}/src/glfw_config.h"
-                   "${GLFW_SOURCE_DIR}/include/GLFW/glfw3.h"
-                   "${GLFW_SOURCE_DIR}/include/GLFW/glfw3native.h")
-set(common_SOURCES context.c init.c input.c monitor.c vulkan.c window.c)
-
-add_custom_target(update_mappings
-    COMMAND "${CMAKE_COMMAND}" -P "${GLFW_SOURCE_DIR}/CMake/GenerateMappings.cmake" mappings.h.in mappings.h
-    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-    COMMENT "Updating gamepad mappings from upstream repository"
-    SOURCES mappings.h.in "${GLFW_SOURCE_DIR}/CMake/GenerateMappings.cmake"
-    VERBATIM)
-
-set_target_properties(update_mappings PROPERTIES FOLDER "GLFW3")
-
-if (_GLFW_COCOA)
-    set(glfw_HEADERS ${common_HEADERS} cocoa_platform.h cocoa_joystick.h
-                     posix_thread.h nsgl_context.h egl_context.h osmesa_context.h)
-    set(glfw_SOURCES ${common_SOURCES} cocoa_init.m cocoa_joystick.m
-                     cocoa_monitor.m cocoa_window.m cocoa_time.c posix_thread.c
-                     nsgl_context.m egl_context.c osmesa_context.c)
-elseif (_GLFW_WIN32)
-    set(glfw_HEADERS ${common_HEADERS} win32_platform.h win32_joystick.h
-                     wgl_context.h egl_context.h osmesa_context.h)
-    set(glfw_SOURCES ${common_SOURCES} win32_init.c win32_joystick.c
-                     win32_monitor.c win32_time.c win32_thread.c win32_window.c
-                     wgl_context.c egl_context.c osmesa_context.c)
-elseif (_GLFW_X11)
-    set(glfw_HEADERS ${common_HEADERS} x11_platform.h xkb_unicode.h posix_time.h
-                     posix_thread.h glx_context.h egl_context.h osmesa_context.h)
-    set(glfw_SOURCES ${common_SOURCES} x11_init.c x11_monitor.c x11_window.c
-                     xkb_unicode.c posix_time.c posix_thread.c glx_context.c
-                     egl_context.c osmesa_context.c)
-elseif (_GLFW_WAYLAND)
-    set(glfw_HEADERS ${common_HEADERS} wl_platform.h
-                     posix_time.h posix_thread.h xkb_unicode.h egl_context.h
-                     osmesa_context.h)
-    set(glfw_SOURCES ${common_SOURCES} wl_init.c wl_monitor.c wl_window.c
-                     posix_time.c posix_thread.c xkb_unicode.c
-                     egl_context.c osmesa_context.c)
-
-    ecm_add_wayland_client_protocol(glfw_SOURCES
-        PROTOCOL
-        "${WAYLAND_PROTOCOLS_PKGDATADIR}/stable/xdg-shell/xdg-shell.xml"
-        BASENAME xdg-shell)
-    ecm_add_wayland_client_protocol(glfw_SOURCES
-        PROTOCOL
-        "${WAYLAND_PROTOCOLS_PKGDATADIR}/unstable/xdg-decoration/xdg-decoration-unstable-v1.xml"
-        BASENAME xdg-decoration)
-    ecm_add_wayland_client_protocol(glfw_SOURCES
-        PROTOCOL
-        "${WAYLAND_PROTOCOLS_PKGDATADIR}/stable/viewporter/viewporter.xml"
-        BASENAME viewporter)
-    ecm_add_wayland_client_protocol(glfw_SOURCES
-        PROTOCOL
-        "${WAYLAND_PROTOCOLS_PKGDATADIR}/unstable/relative-pointer/relative-pointer-unstable-v1.xml"
-        BASENAME relative-pointer-unstable-v1)
-    ecm_add_wayland_client_protocol(glfw_SOURCES
-        PROTOCOL
-        "${WAYLAND_PROTOCOLS_PKGDATADIR}/unstable/pointer-constraints/pointer-constraints-unstable-v1.xml"
-        BASENAME pointer-constraints-unstable-v1)
-    ecm_add_wayland_client_protocol(glfw_SOURCES
-        PROTOCOL
-        "${WAYLAND_PROTOCOLS_PKGDATADIR}/unstable/idle-inhibit/idle-inhibit-unstable-v1.xml"
-        BASENAME idle-inhibit-unstable-v1)
-elseif (_GLFW_OSMESA)
-    set(glfw_HEADERS ${common_HEADERS} null_platform.h null_joystick.h
-                     posix_time.h posix_thread.h osmesa_context.h)
-    set(glfw_SOURCES ${common_SOURCES} null_init.c null_monitor.c null_window.c
-                     null_joystick.c posix_time.c posix_thread.c osmesa_context.c)
-endif()
-
-if (_GLFW_X11 OR _GLFW_WAYLAND)
-    if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
-        set(glfw_HEADERS ${glfw_HEADERS} linux_joystick.h)
-        set(glfw_SOURCES ${glfw_SOURCES} linux_joystick.c)
-    else()
-        set(glfw_HEADERS ${glfw_HEADERS} null_joystick.h)
-        set(glfw_SOURCES ${glfw_SOURCES} null_joystick.c)
-    endif()
-endif()
-
-# Workaround for CMake not knowing about .m files before version 3.16
-if (CMAKE_VERSION VERSION_LESS "3.16" AND APPLE)
-    set_source_files_properties(cocoa_init.m cocoa_joystick.m cocoa_monitor.m
-                                cocoa_window.m nsgl_context.m PROPERTIES
-                                LANGUAGE C)
-=======
 add_library(glfw ${GLFW_LIBRARY_TYPE}
                  "${GLFW_SOURCE_DIR}/include/GLFW/glfw3.h"
                  "${GLFW_SOURCE_DIR}/include/GLFW/glfw3native.h"
@@ -214,7 +125,6 @@ if (UNIX AND GLFW_BUILD_SHARED_LIBRARY)
     set(GLFW_LIB_NAME glfw)
 else()
     set(GLFW_LIB_NAME glfw3)
->>>>>>> source/master
 endif()
 
 set_target_properties(glfw PROPERTIES
@@ -227,32 +137,11 @@ set_target_properties(glfw PROPERTIES
                       DEFINE_SYMBOL _GLFW_BUILD_DLL
                       FOLDER "GLFW3")
 
-<<<<<<< HEAD
-if (CMAKE_VERSION VERSION_EQUAL "3.1.0" OR
-    CMAKE_VERSION VERSION_GREATER "3.1.0")
-
-    set_target_properties(glfw PROPERTIES C_STANDARD 99)
-else()
-    # Remove this fallback when removing support for CMake version less than 3.1
-    target_compile_options(glfw PRIVATE
-                           "$<$<C_COMPILER_ID:AppleClang>:-std=c99>"
-                           "$<$<C_COMPILER_ID:Clang>:-std=c99>"
-                           "$<$<C_COMPILER_ID:GNU>:-std=c99>")
-endif()
-
-target_compile_definitions(glfw PRIVATE _GLFW_USE_CONFIG_H)
-=======
->>>>>>> source/master
 target_include_directories(glfw PUBLIC
                            "$<BUILD_INTERFACE:${GLFW_SOURCE_DIR}/include>"
                            "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 target_include_directories(glfw PRIVATE
                            "${GLFW_SOURCE_DIR}/src"
-<<<<<<< HEAD
-                           "${GLFW_BINARY_DIR}/src"
-                           ${glfw_INCLUDE_DIRS})
-target_link_libraries(glfw PRIVATE ${glfw_LIBRARIES})
-=======
                            "${GLFW_BINARY_DIR}/src")
 target_link_libraries(glfw PRIVATE Threads::Threads)
 
@@ -355,21 +244,10 @@ if (UNIX AND NOT APPLE)
         list(APPEND glfw_PKG_LIBS "-l${CMAKE_DL_LIBS}")
     endif()
 endif()
->>>>>>> source/master
 
 # Make GCC warn about declarations that VS 2010 and 2012 won't accept for all
 # source files that VS will build (Clang ignores this because we set -std=c99)
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
-<<<<<<< HEAD
-    set_source_files_properties(context.c init.c input.c monitor.c vulkan.c
-                                window.c win32_init.c win32_joystick.c
-                                win32_monitor.c win32_time.c win32_thread.c
-                                win32_window.c wgl_context.c egl_context.c
-                                osmesa_context.c PROPERTIES
-                                COMPILE_FLAGS -Wdeclaration-after-statement)
-endif()
-
-=======
     set_source_files_properties(context.c init.c input.c monitor.c platform.c vulkan.c
                                 window.c null_init.c null_joystick.c null_monitor.c
                                 null_window.c win32_init.c win32_joystick.c win32_module.c
@@ -384,7 +262,6 @@ if (WIN32)
     endif()
 endif()
 
->>>>>>> source/master
 # Enable a reasonable set of warnings
 # NOTE: The order matters here, Clang-CL matches both MSVC and Clang
 if (MSVC)
@@ -396,11 +273,7 @@ elseif (CMAKE_C_COMPILER_ID STREQUAL "GNU" OR
     target_compile_options(glfw PRIVATE "-Wall")
 endif()
 
-<<<<<<< HEAD
-if (_GLFW_WIN32)
-=======
 if (GLFW_BUILD_WIN32)
->>>>>>> source/master
     target_compile_definitions(glfw PRIVATE UNICODE _UNICODE)
 endif()
 
@@ -411,8 +284,6 @@ endif()
 if (MINGW)
     target_compile_definitions(glfw PRIVATE WINVER=0x0501)
 endif()
-<<<<<<< HEAD
-=======
 
 # Workaround for legacy MinGW not providing XInput and DirectInput
 if (MINGW)
@@ -423,7 +294,6 @@ if (MINGW)
         target_include_directories(glfw PRIVATE "${GLFW_SOURCE_DIR}/deps/mingw")
     endif()
 endif()
->>>>>>> source/master
 
 # Workaround for the MS CRT deprecating parts of the standard library
 if (MSVC OR CMAKE_C_SIMULATE_ID STREQUAL "MSVC")
@@ -467,15 +337,6 @@ if (GLFW_BUILD_SHARED_LIBRARY)
             # Add a suffix to the import library to avoid naming conflicts
             set_target_properties(glfw PROPERTIES IMPORT_SUFFIX "dll.lib")
         endif()
-<<<<<<< HEAD
-
-        target_compile_definitions(glfw INTERFACE GLFW_DLL)
-    elseif (APPLE)
-        # Add -fno-common to work around a bug in Apple's GCC
-        target_compile_options(glfw PRIVATE "-fno-common")
-    endif()
-
-=======
 
         target_compile_definitions(glfw INTERFACE GLFW_DLL)
     endif()
@@ -509,18 +370,12 @@ if (GLFW_BUILD_SHARED_LIBRARY)
         set(CMAKE_REQUIRED_FLAGS)
     endif()
 
->>>>>>> source/master
     if (UNIX)
         # Hide symbols not explicitly tagged for export from the shared library
         target_compile_options(glfw PRIVATE "-fvisibility=hidden")
     endif()
 endif()
 
-<<<<<<< HEAD
-if (MSVC OR CMAKE_C_SIMULATE_ID STREQUAL "MSVC")
-    target_compile_definitions(glfw PRIVATE _CRT_SECURE_NO_WARNINGS)
-endif()
-=======
 foreach(arg ${glfw_PKG_DEPS})
     string(APPEND deps " ${arg}")
 endforeach()
@@ -534,7 +389,6 @@ set(GLFW_PKG_CONFIG_LIBS_PRIVATE "${libs}" CACHE INTERNAL
     "GLFW pkg-config Libs.private")
 
 configure_file("${GLFW_SOURCE_DIR}/CMake/glfw3.pc.in" glfw3.pc @ONLY)
->>>>>>> source/master
 
 if (GLFW_INSTALL)
     install(TARGETS glfw

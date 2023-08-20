@@ -10,13 +10,8 @@ build applications that use GLFW, see @ref build_guide.
 
 @section compile_cmake Using CMake
 
-<<<<<<< HEAD
-@note GLFW behaves like most other libraries that use CMake so this guide mostly
-describes the basic configure/generate/compile sequence.  If you are already
-=======
 GLFW behaves like most other libraries that use CMake so this guide mostly
 describes the standard configure, generate and compile sequence.  If you are already
->>>>>>> source/master
 familiar with this from other projects, you may want to focus on the @ref
 compile_deps and @ref compile_options sections for GLFW-specific information.
 
@@ -45,11 +40,7 @@ all necessary dependencies for compiling GLFW, but on Unix-like systems like
 Linux and FreeBSD you will need a few extra packages.
 
 
-<<<<<<< HEAD
-@subsubsection compile_deps_x11 Dependencies for X11 on Unix-like systems
-=======
 @subsubsection compile_deps_x11 Dependencies for X11
->>>>>>> source/master
 
 To compile GLFW for X11, you need to have the X11 development packages
 installed.  They are not needed to build or run programs that use GLFW.
@@ -82,40 +73,6 @@ On Cygwin the `libXcursor-devel`, `libXi-devel`, `libXinerama-devel`,
 installer will install all the headers and other development related files GLFW
 requires for X11.
 
-<<<<<<< HEAD
-Once you have the required depdendencies, move on to @ref compile_generate.
-
-
-@subsubsection compile_deps_wayland Dependencies for Wayland on Unix-like systems
-
-To compile GLFW for Wayland, you need to have the Wayland and xkbcommon
-development packages installed.  They are not needed to build or run programs
-that use GLFW.
-
-On Debian and derivatives like Ubuntu and Linux Mint you will need the `libwayland-dev`,
-`libxkbcommon-dev`, `wayland-protocols` and `extra-cmake-modules` packages.
-These will pull in all other dependencies.
-
-@code{.sh}
-sudo apt install libwayland-dev libxkbcommon-dev wayland-protocols extra-cmake-modules
-@endcode
-
-On Fedora and derivatives like Red Hat you will need the `wayland-devel`,
-`libxkbcommon-devel`, `wayland-protocols-devel` and `extra-cmake-modules` packages.
-
-@code{.sh}
-sudo dnf install wayland-devel libxkbcommon-devel wayland-protocols-devel extra-cmake-modules
-@endcode
-
-On FreeBSD you will need the `wayland`, `libxkbcommon`, `wayland-protocols` and
-`kf5-extra-cmake-modules` packages.
-
-@code{.sh}
-pkg install wayland libxkbcommon wayland-protocols kf5-extra-cmake-modules
-@endcode
-
-Once you have the required depdendencies, move on to @ref compile_generate.
-=======
 Once you have the required dependencies, move on to @ref compile_generate.
 
 
@@ -152,7 +109,6 @@ pkg install wayland libxkbcommon wayland-protocols xorgproto
 @endcode
 
 Once you have the required dependencies, move on to @ref compile_generate.
->>>>>>> source/master
 
 
 @subsection compile_generate Generating build files with CMake
@@ -177,11 +133,7 @@ A common pattern when building a single configuration is to have a build
 directory named `build` in the root of the source tree.
 
 
-<<<<<<< HEAD
-@subsubsection compile_generate_gui Generating files with the CMake GUI
-=======
 @subsubsection compile_generate_gui Generating with the CMake GUI
->>>>>>> source/master
 
 Start the CMake GUI and set the paths to the source and build directories
 described above.  Then press _Configure_ and _Generate_.
@@ -190,25 +142,15 @@ If you wish change any CMake variables in the list, press _Configure_ and then
 _Generate_ to have the new values take effect.  The variable list will be
 populated after the first configure step.
 
-<<<<<<< HEAD
-By default, GLFW will use X11 on Linux and other Unix-like systems other
-than macOS.  To use Wayland instead, set the `GLFW_USE_WAYLAND` option in the
-GLFW section of the variable list, then apply the new value as described above.
-=======
 By default, GLFW will use X11 on Linux and other Unix-like systems other than macOS.  To
 include support for Wayland as well, set the @ref GLFW_BUILD_WAYLAND option in the GLFW
 section of the variable list, then apply the new value as described above.
->>>>>>> source/master
 
 Once you have generated the project files or makefiles for your chosen
 development environment, move on to @ref compile_compile.
 
 
-<<<<<<< HEAD
-@subsubsection compile_generate_cli Generating files with the CMake command-line tool
-=======
 @subsubsection compile_generate_cli Generating with command-line CMake
->>>>>>> source/master
 
 To make a build directory, pass the source and build directories to the `cmake`
 command.  These can be relative or absolute paths.  The build directory is
@@ -235,18 +177,11 @@ cmake -S path/to/glfw -B path/to/build -G Xcode
 @endcode
 
 By default, GLFW will use X11 on Linux and other Unix-like systems other
-<<<<<<< HEAD
-than macOS.  To use Wayland instead, set the `GLFW_USE_WAYLAND` CMake option.
-
-@code{.sh}
-cmake -S path/to/glfw -B path/to/build -D GLFW_USE_WAYLAND=1
-=======
 than macOS.  To also include support for Wayland, set the @ref GLFW_BUILD_WAYLAND CMake
 option.
 
 @code{.sh}
 cmake -S path/to/glfw -B path/to/build -D GLFW_BUILD_WAYLAND=1
->>>>>>> source/master
 @endcode
 
 Once you have generated the project files or makefiles for your chosen
@@ -312,11 +247,6 @@ cmake -S path/to/glfw -B path/to/build -D BUILD_SHARED_LIBS=ON
 @subsection compile_options_shared Shared CMake options
 
 @anchor BUILD_SHARED_LIBS
-<<<<<<< HEAD
-__BUILD_SHARED_LIBS__ determines whether GLFW is built as a static
-library or as a DLL / shared library / dynamic library.  This is disabled by
-default, producing a static GLFW library.
-=======
 __BUILD_SHARED_LIBS__ determines whether GLFW is built as a static library or as
 a DLL / shared library / dynamic library.  This is disabled by default,
 producing a static GLFW library.  This variable has no `GLFW_` prefix because it
@@ -329,7 +259,6 @@ GLFW, without affecting other libraries in a larger project.  When set, the
 value of this option must be a valid CMake library type.  Set it to `STATIC` to
 build GLFW as a static library, `SHARED` to build it as a shared library
 / dynamic library / DLL, or `OBJECT` to make GLFW a CMake object library.
->>>>>>> source/master
 
 @anchor GLFW_BUILD_EXAMPLES
 __GLFW_BUILD_EXAMPLES__ determines whether the GLFW examples are built
@@ -345,15 +274,6 @@ built as a subproject of a larger CMake project.
 __GLFW_BUILD_DOCS__ determines whether the GLFW documentation is built along
 with the library.  This is enabled by default if
 [Doxygen](https://www.doxygen.nl/) is found by CMake during configuration.
-<<<<<<< HEAD
-
-@anchor GLFW_VULKAN_STATIC
-__GLFW_VULKAN_STATIC__ determines whether to use the Vulkan loader linked
-directly with the application.  This is disabled by default.
-
-
-@subsection compile_options_win32 Windows specific CMake options
-=======
 
 
 @subsection compile_options_win32 Win32 specific CMake options
@@ -362,7 +282,6 @@ directly with the application.  This is disabled by default.
 __GLFW_BUILD_WIN32__ determines whether to include support for Win32 when compiling the
 library.  This option is only available when compiling for Windows.  This is enabled by
 default.
->>>>>>> source/master
 
 @anchor USE_MSVC_RUNTIME_LIBRARY_DLL
 __USE_MSVC_RUNTIME_LIBRARY_DLL__ determines whether to use the DLL version or the
@@ -382,14 +301,6 @@ will not work if GLFW is built as a DLL.  This is disabled by default, letting
 the operating system and driver decide.
 
 
-<<<<<<< HEAD
-@subsection compile_options_wayland Wayland specific CMake options
-
-@anchor GLFW_USE_WAYLAND
-__GLFW_USE_WAYLAND__ determines whether to compile the library for Wayland.
-This option is only available on Linux and other Unix-like systems other than
-macOS.  This is disabled by default.
-=======
 @subsection compile_options_macos macOS specific CMake options
 
 @anchor GLFW_BUILD_COCOA
@@ -409,7 +320,6 @@ systems other than macOS.  This is disabled by default.
 __GLFW_BUILD_X11__ determines whether to include support for X11 when compiling the
 library.  This option is only available when compiling for Linux and other Unix-like
 systems other than macOS.  This is enabled by default.
->>>>>>> source/master
 
 
 @section compile_mingw_cross Cross-compilation with CMake and MinGW
@@ -447,18 +357,10 @@ For more details see the
 
 @section compile_manual Compiling GLFW manually
 
-<<<<<<< HEAD
-If you wish to compile GLFW without its CMake build environment then you will
-have to do at least some of the platform-detection yourself.  GLFW needs
-a configuration macro to be defined in order to know what window system it is
-being compiled for and also has optional, platform-specific ones for various
-features.
-=======
 If you wish to compile GLFW without its CMake build environment then you will have to do
 at least some platform-detection yourself.  There are preprocessor macros for
 enabling support for the platforms (window systems) available.  There are also optional,
 platform-specific macros for various features.
->>>>>>> source/master
 
 When building, GLFW will expect the necessary configuration macros to be defined
 on the command-line.  The GLFW CMake files set these as private compile

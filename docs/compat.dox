@@ -110,11 +110,7 @@ versions are not supported.
 GLFW uses the [xdg-shell
 protocol](https://cgit.freedesktop.org/wayland/wayland-protocols/tree/stable/xdg-shell/xdg-shell.xml)
 to provide better window management.  This protocol is part of
-<<<<<<< HEAD
-wayland-protocols 1.12, and mandatory at build time.
-=======
 wayland-protocols 1.12, and is mandatory for GLFW to display a window.
->>>>>>> source/master
 
 GLFW uses the [relative pointer
 protocol](https://cgit.freedesktop.org/wayland/wayland-protocols/tree/unstable/relative-pointer/relative-pointer-unstable-v1.xml)
