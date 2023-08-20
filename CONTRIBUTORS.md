@@ -11,6 +11,10 @@ video tutorials.
  - Takuro Ashie
  - ashishgamedev
  - David Avedissian
+<<<<<<< HEAD
+=======
+ - Luca Bacci
+>>>>>>> source/master
  - Keith Bauer
  - John Bartholomew
  - Coşku Baş
@@ -33,6 +37,10 @@ video tutorials.
  - Arturo Castro
  - Chi-kwan Chan
  - TheChocolateOre
+<<<<<<< HEAD
+=======
+ - Ali Chraghi
+>>>>>>> source/master
  - Joseph Chua
  - Ian Clarkson
  - Michał Cichoń
@@ -60,7 +68,11 @@ video tutorials.
  - Robin Eklind
  - Jan Ekström
  - Siavash Eliasi
+<<<<<<< HEAD
  - TheExileFox
+=======
+ - Ahmad Fatoum
+>>>>>>> source/master
  - Nikita Fediuchin
  - Felipe Ferreira
  - Michael Fogleman
@@ -150,10 +162,18 @@ video tutorials.
  - Jon Morton
  - Pierre Moulon
  - Martins Mozeiko
+<<<<<<< HEAD
+=======
+ - Pascal Muetschard
+>>>>>>> source/master
  - James Murphy
  - Julian Møller
  - ndogxj
  - F. Nedelec
+<<<<<<< HEAD
+=======
+ - n3rdopolis
+>>>>>>> source/master
  - Kristian Nielsen
  - Joel Niemelä
  - Kamil Nowakowski
@@ -161,9 +181,17 @@ video tutorials.
  - Denis Ovod
  - Ozzy
  - Andri Pálsson
+<<<<<<< HEAD
  - Peoro
  - Braden Pellett
  - Christopher Pelloux
+=======
+ - luz paz
+ - Peoro
+ - Braden Pellett
+ - Christopher Pelloux
+ - Michael Pennington
+>>>>>>> source/master
  - Arturo J. Pérez
  - Vladimir Perminov
  - Olivier Perret
@@ -182,17 +210,29 @@ video tutorials.
  - pthom
  - Martin Pulec
  - Guillaume Racicot
+<<<<<<< HEAD
+=======
+ - Juan Ramos
+>>>>>>> source/master
  - Christian Rauch
  - Philip Rideout
  - Eddie Ringle
  - Max Risuhin
  - Joe Roback
  - Jorge Rodriguez
+<<<<<<< HEAD
+=======
+ - Jari Ronkainen
+>>>>>>> source/master
  - Luca Rood
  - Ed Ropple
  - Aleksey Rybalkin
  - Mikko Rytkönen
  - Riku Salminen
+<<<<<<< HEAD
+=======
+ - Yoshinori Sano
+>>>>>>> source/master
  - Brandon Schaefer
  - Sebastian Schuberth
  - Christian Sdunek
@@ -206,6 +246,10 @@ video tutorials.
  - Daniel Sieger
  - Daniel Skorupski
  - Slemmie
+<<<<<<< HEAD
+=======
+ - Anthony Smith
+>>>>>>> source/master
  - Bradley Smith
  - Cliff Smolinsky
  - Patrick Snape
@@ -220,6 +264,10 @@ video tutorials.
  - Paul Sultana
  - Nathan Sweet
  - TTK-Bandit
+<<<<<<< HEAD
+=======
+ - Jared Tiala
+>>>>>>> source/master
  - Sergey Tikhomirov
  - Arthur Tombs
  - TronicLabs
@@ -237,12 +285,23 @@ video tutorials.
  - Torsten Walluhn
  - Patrick Walton
  - Xo Wang
+<<<<<<< HEAD
  - Jay Weisskopf
  - Frank Wille
  - Richard A. Wilkes
  - Tatsuya Yatagawa
  - Ryogo Yoshimura
  - Rácz Zalán
+=======
+ - Andre Weissflog
+ - Jay Weisskopf
+ - Frank Wille
+ - Andy Williams
+ - Joel Winarske
+ - Richard A. Wilkes
+ - Tatsuya Yatagawa
+ - Ryogo Yoshimura
+>>>>>>> source/master
  - Lukas Zanner
  - Andrey Zholos
  - Aihui Zhu
